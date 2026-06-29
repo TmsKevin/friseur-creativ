@@ -1,106 +1,862 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galerie | Friseur Creativ Herbolzheim</title>
+  <meta name="description" content="Galerie von Friseur Creativ in Herbolzheim – Einblicke in Salon, Atmosphäre, Farbe, Styling und Ergebnisse." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root{
+      --bg:#eef2ee;
+      --surface:#ffffff;
+      --surface-2:#f5f7f4;
+      --surface-3:#e5ece6;
+      --text:#101611;
+      --muted:#5d6b61;
+      --line:rgba(16,22,17,.08);
+      --brand:#1f3429;
+      --brand-mid:#375645;
+      --brand-light:#6f8b79;
+      --accent:#dbe7de;
+      --gold:#b7a366;
+      --dark:#0b100c;
+      --shadow-sm:0 8px 20px rgba(10,15,11,.06);
+      --shadow:0 18px 45px rgba(10,15,11,.09);
+      --shadow-lg:0 34px 80px rgba(10,15,11,.14);
+      --radius-xl:32px;
+      --radius-lg:24px;
+      --radius-md:18px;
+      --container:1440px;
+    }
 
-:root{
-  --bg:#f4f6f2;--surface:#ffffff;--surface-2:#f0f3ee;--text:#0f1510;--muted:#5e6b62;
-  --line:rgba(15,21,16,.07);--brand:#1e3328;--brand-mid:#3a5c4a;--brand-light:#6a8c78;
-  --accent:#d6e4d9;--dark:#0a0f0b;
-  --shadow-sm:0 4px 18px rgba(10,15,11,.06);
-  --shadow:0 20px 60px rgba(10,15,11,.10);
-  --shadow-lg:0 40px 100px rgba(10,15,11,.14);
-  --radius-xl:32px;--radius-lg:24px;--radius-md:16px;--container:1480px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:#f4f6f2;line-height:1.6;-webkit-font-smoothing:antialiased;}
-a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%;height:auto}
-.wrap{width:min(calc(100% - 32px),var(--container));margin:0 auto}
-header{position:sticky;top:0;z-index:200;background:rgba(244,246,242,.90);backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid var(--line);}
-.nav{height:80px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
-.brand-mark{width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,var(--brand),var(--brand-mid));display:grid;place-items:center;color:#fff;font-weight:800;font-size:.88rem;letter-spacing:.06em;box-shadow:var(--shadow-sm);}
-.brand-text strong{display:block;font-size:.98rem;font-weight:700;letter-spacing:.02em}
-.brand-text span{display:block;font-size:.8rem;color:var(--muted);margin-top:1px}
-.nav-menu{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.nav-menu a{padding:8px 13px;border-radius:999px;font-size:.9rem;font-weight:550;color:var(--text);transition:background .15s;}
-.nav-menu a:hover{background:rgba(15,21,16,.06)}
-.nav-cta{display:inline-flex;align-items:center;justify-content:center;padding:11px 18px;border-radius:999px;background:var(--brand);color:#fff !important;font-weight:700;font-size:.9rem;box-shadow:var(--shadow-sm);transition:opacity .15s;}
-.nav-cta:hover{opacity:.88}
-.menu-btn{display:none;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:10px 13px;font:700 .88rem/1 inherit;color:var(--text);cursor:pointer;}
-section{padding:40px 0}
-footer{padding:20px 0 36px}
-.footer-inner{background:var(--dark);color:#e8f0ea;border-radius:var(--radius-xl);padding:32px;}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:20px}
-.footer-inner h4{font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px;color:rgba(232,240,234,.6)}
-.footer-inner p,.footer-inner a,.footer-inner span{color:rgba(232,240,234,.75);font-size:.9rem}
-.footer-inner a:hover{color:#fff}
-.footer-links{display:grid;gap:7px}
-.footer-bottom{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.footer-bottom span,.footer-bottom a{font-size:.82rem;color:rgba(232,240,234,.45)}
-.float-cta{display:none}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:.98rem;transition:.2s ease;}
-.btn-white{background:#fff;color:var(--dark)}
-@media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr !important}}
-@media(max-width:860px){
-  .menu-btn{display:inline-flex}
-  .nav{height:auto;padding:13px 0;flex-wrap:wrap}
-  .nav-menu{display:none;width:100%;flex-direction:column;align-items:stretch;gap:6px;padding:8px 0 4px;}
-  .nav-menu.open{display:flex}
-  .nav-menu a{padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:13px;font-size:.98rem;}
-  .nav-cta{width:100%;justify-content:center}
-}
-@media(max-width:700px){
-  .wrap{width:min(calc(100% - 16px),var(--container))}
-  section{padding:22px 0}
-  .footer-grid{grid-template-columns:1fr !important}
-  .footer-inner{border-radius:20px;padding:22px}
-  .float-cta{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:300;}
-  .float-cta a{display:flex;align-items:center;justify-content:center;min-height:56px;border-radius:999px;background:var(--brand);color:#fff;font-weight:800;box-shadow:0 14px 30px rgba(30,51,40,.30);}
-  body{padding-bottom:80px}
-}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{
+      font-family:'Inter',system-ui,-apple-system,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
 
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%;height:auto}
 
-.gal-hero{min-height:460px;border-radius:var(--radius-xl);overflow:hidden;
-  background:linear-gradient(180deg,rgba(10,15,11,.08) 0%,rgba(10,15,11,.68) 100%),
-  url("https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fcf2005fd4d94ec3b3e8d4ee5c7b5d23e0b5201b.jpg") center/cover;
-  display:flex;align-items:flex-end;padding:44px;box-shadow:var(--shadow-lg);}
-.gal-hero h1{color:#fff;font-size:clamp(2.8rem,5.5vw,5.5rem);letter-spacing:-.06em;line-height:.96}
-.gal-hero p{color:rgba(255,255,255,.85);margin-top:10px;font-size:1rem;max-width:50ch}
-.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:600;letter-spacing:.04em;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.9);}
-.gal-intro{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-xl);padding:28px;box-shadow:var(--shadow);margin-top:14px;}
-.gal-intro p{color:var(--muted);max-width:72ch}
-.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:14px;margin-top:14px;}
-.gal-item{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);background:var(--accent);}
-.gal-item img{width:100%;height:100%;object-fit:cover;display:block}
-.gal-item.tall{grid-row:span 2}
-.gal-placeholder{min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(160deg,var(--surface-2),var(--accent));border:2px dashed rgba(30,51,40,.18);}
-.gal-placeholder span{font-size:.86rem;color:var(--muted);text-align:center;padding:0 16px}
-.gal-cta{background:linear-gradient(140deg,var(--brand),var(--brand-mid));border-radius:var(--radius-xl);padding:36px;color:#fff;text-align:center;margin-top:14px;box-shadow:var(--shadow-lg);}
-.gal-cta h2{font-size:clamp(1.8rem,3vw,2.8rem);letter-spacing:-.04em;margin-bottom:10px}
-.gal-cta p{color:rgba(255,255,255,.85);margin-bottom:20px;font-size:.96rem;max-width:55ch;margin-left:auto;margin-right:auto}
-@media(max-width:900px){.gal-grid{grid-template-columns:1fr 1fr !important}.gal-item.tall{grid-row:unset}}
-@media(max-width:600px){.gal-grid{grid-template-columns:1fr !important}.gal-hero{min-height:280px;padding:22px 16px;border-radius:20px}}
+    .wrap{width:min(calc(100% - 32px),var(--container));margin:0 auto}
+    section{padding:34px 0}
 
+    header{
+      position:sticky;
+      top:0;
+      z-index:300;
+      background:rgba(238,242,238,.92);
+      backdrop-filter:blur(18px) saturate(1.5);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-shrink:0;
+    }
+
+    .brand-mark{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-weight:800;
+      font-size:.88rem;
+      letter-spacing:.06em;
+      background:linear-gradient(145deg,var(--brand),var(--brand-mid));
+      box-shadow:var(--shadow-sm);
+    }
+
+    .brand-text strong{
+      display:block;
+      font-size:.98rem;
+      font-weight:700;
+      letter-spacing:.01em;
+    }
+
+    .brand-text span{
+      display:block;
+      font-size:.8rem;
+      color:var(--muted);
+      margin-top:1px;
+    }
+
+    .menu-btn{
+      display:none;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--text);
+      min-height:48px;
+      padding:0 14px;
+      border-radius:14px;
+      font:700 .92rem/1 inherit;
+      cursor:pointer;
+    }
+
+    .nav-menu{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      flex-wrap:wrap;
+    }
+
+    .nav-menu a{
+      padding:10px 13px;
+      border-radius:999px;
+      font-size:.92rem;
+      font-weight:600;
+      transition:background .18s ease,color .18s ease;
+    }
+
+    .nav-menu a:hover{background:rgba(16,22,17,.06)}
+
+    .nav-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      background:var(--brand);
+      color:#fff !important;
+      font-weight:700;
+      box-shadow:var(--shadow-sm);
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      width:fit-content;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.18);
+      color:rgba(255,255,255,.94);
+      font-size:.8rem;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    .eyebrow-dark{
+      background:var(--accent);
+      border:1px solid rgba(16,22,17,.06);
+      color:var(--brand);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:54px;
+      padding:14px 22px;
+      border-radius:18px;
+      font-weight:700;
+      font-size:.98rem;
+      transition:transform .18s ease,opacity .18s ease,box-shadow .18s ease,background .18s ease,color .18s ease;
+      cursor:pointer;
+      text-align:center;
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+    .btn-white{
+      background:#fff;
+      color:var(--dark);
+      box-shadow:0 10px 26px rgba(0,0,0,.14);
+    }
+    .btn-brand{
+      background:var(--brand);
+      color:#fff;
+      box-shadow:var(--shadow-sm);
+    }
+    .btn-outline{
+      background:transparent;
+      color:var(--brand);
+      border:1.5px solid var(--brand);
+    }
+
+    .hero{
+      min-height:560px;
+      border-radius:var(--radius-xl);
+      overflow:hidden;
+      box-shadow:var(--shadow-lg);
+      display:flex;
+      align-items:flex-end;
+      padding:46px;
+      background:
+        linear-gradient(180deg,rgba(10,15,11,.08) 0%,rgba(10,15,11,.28) 34%,rgba(10,15,11,.88) 100%),
+        url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1600&q=85&auto=format&fit=crop") center/cover;
+    }
+
+    .hero-copy{
+      color:#fff;
+      max-width:720px;
+    }
+
+    .hero-copy h1{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(3rem,5.2vw,5.7rem);
+      line-height:.95;
+      letter-spacing:-.05em;
+      margin:16px 0 14px;
+      max-width:8ch;
+      font-weight:600;
+    }
+
+    .hero-copy p{
+      color:rgba(255,255,255,.88);
+      font-size:1.04rem;
+      line-height:1.68;
+      max-width:50ch;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:22px;
+    }
+
+    .intro-grid,
+    .story-grid,
+    .cta-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+
+    .card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius-xl);
+      padding:34px;
+      box-shadow:var(--shadow);
+    }
+
+    .card h2{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.95rem,3vw,3rem);
+      line-height:1.04;
+      letter-spacing:-.04em;
+      font-weight:500;
+    }
+
+    .card p{
+      color:var(--muted);
+      font-size:.95rem;
+      line-height:1.66;
+    }
+
+    .mini-points{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:22px;
+    }
+
+    .mini{
+      background:var(--surface-2);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+    }
+
+    .mini strong{
+      display:block;
+      margin-bottom:5px;
+      font-size:.94rem;
+    }
+
+    .mini span{
+      display:block;
+      color:var(--muted);
+      font-size:.86rem;
+      line-height:1.45;
+    }
+
+    .image-box{
+      min-height:100%;
+      border-radius:var(--radius-xl);
+      overflow:hidden;
+      box-shadow:var(--shadow-lg);
+      background:var(--surface-3);
+    }
+
+    .image-box img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .gallery-shell{
+      background:linear-gradient(180deg,#f7faf7 0%,#edf3ee 100%);
+      border:1px solid rgba(16,22,17,.06);
+      border-radius:var(--radius-xl);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .gallery-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+
+    .gallery-head h2{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.95rem,3vw,2.9rem);
+      line-height:1.04;
+      letter-spacing:-.04em;
+      font-weight:500;
+    }
+
+    .gallery-head p{
+      color:var(--muted);
+      max-width:52ch;
+      font-size:.93rem;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr .9fr;
+      gap:14px;
+      grid-auto-rows:220px;
+    }
+
+    .gallery-item{
+      position:relative;
+      overflow:hidden;
+      border-radius:24px;
+      background:var(--surface);
+      box-shadow:var(--shadow-sm);
+      border:1px solid rgba(16,22,17,.05);
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .35s ease;
+    }
+
+    .gallery-item:hover img{
+      transform:scale(1.03);
+    }
+
+    .gallery-item.large{
+      grid-row:span 2;
+    }
+
+    .gallery-caption{
+      position:absolute;
+      left:14px;
+      right:14px;
+      bottom:14px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:rgba(10,15,11,.52);
+      backdrop-filter:blur(8px);
+      color:#fff;
+      font-size:.86rem;
+      line-height:1.4;
+    }
+
+    .gallery-placeholder{
+      min-height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      text-align:center;
+      padding:20px;
+      background:linear-gradient(160deg,var(--surface-2),var(--accent));
+      border:2px dashed rgba(31,52,41,.14);
+      color:var(--brand);
+    }
+
+    .gallery-placeholder strong{
+      font-size:.94rem;
+    }
+
+    .gallery-placeholder span{
+      color:var(--muted);
+      font-size:.84rem;
+      line-height:1.45;
+      max-width:24ch;
+    }
+
+    .compare-shell{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius-xl);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .compare-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+
+    .compare-head h2{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.95rem,3vw,2.9rem);
+      line-height:1.04;
+      letter-spacing:-.04em;
+      font-weight:500;
+    }
+
+    .compare-head p{
+      color:var(--muted);
+      max-width:52ch;
+      font-size:.93rem;
+    }
+
+    .compare-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .compare-card{
+      background:var(--surface-2);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:18px;
+    }
+
+    .compare-visual{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-bottom:14px;
+    }
+
+    .compare-box{
+      aspect-ratio:4 / 5;
+      border-radius:18px;
+      overflow:hidden;
+      position:relative;
+      background:linear-gradient(160deg,var(--surface-2),var(--accent));
+      border:1px solid rgba(31,52,41,.10);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .compare-box::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,.55), transparent 46%),
+        linear-gradient(160deg, rgba(219,231,222,1) 0%, rgba(245,247,244,1) 100%);
+    }
+
+    .compare-label{
+      position:absolute;
+      top:12px;
+      left:12px;
+      z-index:2;
+      padding:7px 11px;
+      border-radius:999px;
+      background:rgba(16,22,17,.70);
+      color:#fff;
+      font-size:.73rem;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    .compare-content{
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      text-align:center;
+      padding:18px;
+    }
+
+    .compare-content svg{
+      opacity:.5;
+    }
+
+    .compare-content strong{
+      font-size:.92rem;
+      color:var(--brand);
+    }
+
+    .compare-content span{
+      color:var(--muted);
+      font-size:.82rem;
+      line-height:1.4;
+      max-width:16ch;
+    }
+
+    .compare-card h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.18rem;
+      font-weight:500;
+      margin-bottom:6px;
+    }
+
+    .compare-card p{
+      color:var(--muted);
+      font-size:.9rem;
+      line-height:1.58;
+    }
+
+    .cta-card{
+      background:linear-gradient(140deg,var(--brand) 0%,var(--brand-mid) 100%);
+      color:#fff;
+      border-radius:var(--radius-xl);
+      padding:36px;
+      box-shadow:var(--shadow-lg);
+    }
+
+    .cta-card h2{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2rem,3vw,3rem);
+      line-height:1.03;
+      letter-spacing:-.04em;
+      font-weight:500;
+      margin-bottom:10px;
+    }
+
+    .cta-card p{
+      color:rgba(255,255,255,.86);
+      font-size:.96rem;
+      line-height:1.68;
+      max-width:48ch;
+      margin-bottom:22px;
+    }
+
+    .cta-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .kontakt-card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius-xl);
+      padding:34px;
+      box-shadow:var(--shadow);
+    }
+
+    .kontakt-card h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.55rem;
+      font-weight:500;
+      margin-bottom:10px;
+    }
+
+    .kontakt-card p{
+      color:var(--muted);
+      font-size:.94rem;
+      line-height:1.62;
+      margin-bottom:18px;
+    }
+
+    .contact-lines{
+      display:grid;
+      gap:10px;
+    }
+
+    .contact-line{
+      min-height:52px;
+      display:flex;
+      align-items:center;
+      padding:12px 14px;
+      border-radius:16px;
+      background:var(--surface-2);
+      border:1px solid var(--line);
+      font-size:.92rem;
+      color:var(--text);
+    }
+
+    footer{padding:18px 0 36px}
+
+    .footer-inner{
+      background:var(--dark);
+      color:#e8efe9;
+      border-radius:var(--radius-xl);
+      padding:34px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.3fr 1fr 1fr;
+      gap:24px;
+    }
+
+    .footer-inner h4{
+      font-size:.88rem;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      color:rgba(232,239,233,.52);
+      margin-bottom:12px;
+    }
+
+    .footer-inner p,
+    .footer-inner a,
+    .footer-inner span{
+      color:rgba(232,239,233,.76);
+      font-size:.9rem;
+    }
+
+    .footer-links{
+      display:grid;
+      gap:8px;
+    }
+
+    .footer-bottom{
+      margin-top:24px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.08);
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .footer-bottom span,
+    .footer-bottom a{
+      font-size:.82rem;
+      color:rgba(232,239,233,.42);
+    }
+
+    .float-cta{display:none}
+
+    @media(max-width:1100px){
+      .intro-grid,
+      .story-grid,
+      .cta-grid{
+        grid-template-columns:1fr !important;
+      }
+      .gallery-grid{
+        grid-template-columns:1fr 1fr !important;
+      }
+      .gallery-item.large{
+        grid-row:span 1;
+      }
+      .compare-grid{
+        grid-template-columns:1fr !important;
+      }
+      .footer-grid{
+        grid-template-columns:1fr 1fr !important;
+      }
+    }
+
+    @media(max-width:860px){
+      .menu-btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+      }
+
+      .nav{
+        min-height:auto;
+        padding:12px 0;
+        flex-wrap:wrap;
+      }
+
+      .nav-menu{
+        display:none;
+        width:100%;
+        flex-direction:column;
+        align-items:stretch;
+        gap:8px;
+        padding:8px 0 2px;
+      }
+
+      .nav-menu.open{display:flex}
+
+      .nav-menu a,
+      .nav-cta{
+        min-height:52px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:12px 14px;
+        border-radius:14px;
+        background:#fff;
+        border:1px solid var(--line);
+      }
+
+      .nav-cta{
+        background:var(--brand);
+        border-color:transparent;
+      }
+    }
+
+    @media(max-width:700px){
+      :root{
+        --radius-xl:24px;
+        --radius-lg:18px;
+        --radius-md:14px;
+      }
+
+      body{padding-bottom:96px}
+      .wrap{width:min(calc(100% - 16px),var(--container))}
+      section{padding:18px 0}
+
+      .hero{
+        min-height:500px;
+        padding:20px 18px 18px;
+        border-radius:24px;
+        background:
+          linear-gradient(180deg,rgba(10,15,11,.08) 0%,rgba(10,15,11,.26) 34%,rgba(10,15,11,.84) 100%),
+          url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1400&q=85&auto=format&fit=crop") center 35%/cover;
+      }
+
+      .hero-copy h1{
+        font-size:clamp(2.35rem,11vw,3.2rem);
+        max-width:8ch;
+        margin:12px 0;
+      }
+
+      .hero-copy p{
+        font-size:.98rem;
+        line-height:1.55;
+        max-width:29ch;
+      }
+
+      .hero-actions{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:10px;
+        width:100%;
+      }
+
+      .btn,
+      .float-cta a{
+        width:100%;
+        min-height:54px;
+        border-radius:16px;
+      }
+
+      .card,
+      .gallery-shell,
+      .compare-shell,
+      .cta-card,
+      .kontakt-card,
+      .footer-inner{
+        padding:20px;
+        border-radius:20px;
+      }
+
+      .card h2,
+      .gallery-head h2,
+      .compare-head h2,
+      .cta-card h2{
+        font-size:clamp(1.72rem,8vw,2.25rem);
+        max-width:12ch;
+      }
+
+      .mini-points{
+        grid-template-columns:1fr;
+      }
+
+      .gallery-grid{
+        grid-template-columns:1fr !important;
+        grid-auto-rows:220px;
+      }
+
+      .compare-visual{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr !important;
+      }
+
+      .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:6px;
+      }
+
+      .float-cta{
+        display:block;
+        position:fixed;
+        left:12px;
+        right:12px;
+        bottom:calc(12px + env(safe-area-inset-bottom));
+        z-index:350;
+      }
+
+      .float-cta a{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:58px;
+        border-radius:18px;
+        background:var(--brand);
+        color:#fff;
+        font-weight:800;
+        box-shadow:0 14px 34px rgba(31,52,41,.30);
+        letter-spacing:.01em;
+      }
+    }
+
+    @media(max-width:460px){
+      .compare-visual{
+        grid-template-columns:1fr;
+      }
+    }
   </style>
 </head>
 <body>
+
   <header>
     <div class="wrap nav">
       <a class="brand" href="index.html">
         <div class="brand-mark">FC</div>
-        <div class="brand-text"><strong>Friseur Creativ</strong><span>Herbolzheim</span></div>
+        <div class="brand-text">
+          <strong>Friseur Creativ</strong>
+          <span>Herbolzheim</span>
+        </div>
       </a>
-      <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="navMenu">Menü</button>
+
+      <button class="menu-btn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMenu">Menü</button>
+
       <nav class="nav-menu" id="navMenu">
         <a href="index.html#leistungen">Leistungen</a>
         <a href="index.html#philosophie">Philosophie</a>
         <a href="index.html#team">Team</a>
+        <a href="index.html#bewertungen">Stimmen</a>
         <a href="index.html#kontakt">Kontakt</a>
         <a href="galerie.html">Galerie</a>
         <a href="impressum.html">Impressum</a>
@@ -109,53 +865,321 @@ footer{padding:20px 0 36px}
       </nav>
     </div>
   </header>
+
   <main>
     <section>
       <div class="wrap">
-        <div class="gal-hero">
-          <div>
-            <span class="eyebrow">Einblicke · Atmosphäre · Handwerk</span>
+        <div class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">Einblicke · Atmosphäre · Ergebnisse</span>
             <h1>Galerie.</h1>
-            <p>Impressionen aus dem Salon – Atmosphäre, Schnitte, Farbe und das Team hinter Friseur Creativ.</p>
+            <p>Einblicke in Salon, Atmosphäre, Farbe, Styling und die Details, die Friseur Creativ in Herbolzheim ausmachen.</p>
+            <div class="hero-actions">
+              <a class="btn btn-white" href="tel:07643930693">Jetzt Termin anfragen</a>
+              <a class="btn btn-outline" href="#vorhernachher">Vorher / Nachher ansehen</a>
+            </div>
           </div>
         </div>
-        <div class="gal-intro"><p>Hier entsteht Individuelles – persönlich, hochwertig und auf Sie zugeschnitten. Diese Galerie gibt einen Einblick in die Arbeit und das Ambiente von Friseur Creativ in Herbolzheim.</p></div>
-        <div class="gal-grid">
-          <div class="gal-item tall"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fcf2005fd4d94ec3b3e8d4ee5c7b5d23e0b5201b.jpg" alt="Salon"></div>
-          <div class="gal-item"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/062fd8fb18ae14bd802291d381ed248f2b9bc934.jpg" alt="Stylistin"></div>
-          <div class="gal-item"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a5a81410108467eea03c4c3e5f6810196bc49c23.jpg" alt="Farbe"></div>
-          <div class="gal-item gal-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(30,51,40,.28)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Eigenes Salonbild</span></div>
-          <div class="gal-item gal-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(30,51,40,.28)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Teambild</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap intro-grid">
+        <div class="card">
+          <span class="eyebrow eyebrow-dark">Der Eindruck</span>
+          <h2 style="margin-top:16px;">Atmosphäre, Handwerk und Persönlichkeit.</h2>
+          <p style="margin-top:14px;">Eine gute Galerie zeigt nicht nur schöne Bilder, sondern vermittelt Gefühl, Qualität und Vertrauen. Genau deshalb verbindet diese Seite Salon-Einblicke mit Platzhaltern für echte Aufnahmen, die später den professionellen Eindruck noch stärker machen.</p>
+
+          <div class="mini-points">
+            <div class="mini">
+              <strong>Salon</strong>
+              <span>Zeigt Atmosphäre, Sauberkeit und Stil auf den ersten Blick.</span>
+            </div>
+            <div class="mini">
+              <strong>Team</strong>
+              <span>Vertrauen entsteht schneller, wenn Menschen sichtbar werden.</span>
+            </div>
+            <div class="mini">
+              <strong>Ergebnisse</strong>
+              <span>Vorher-/Nachher-Vergleiche zeigen Wirkung statt nur Worte.</span>
+            </div>
+            <div class="mini">
+              <strong>Mobile stark</strong>
+              <span>Auch auf dem Handy bleibt alles klar, groß und leicht erfassbar.</span>
+            </div>
+          </div>
         </div>
-        <div class="gal-cta">
-          <h2>Einen Termin vereinbaren?</h2>
-          <p>Rufen Sie einfach an – wir freuen uns auf Ihren Besuch.</p>
-          <a class="btn btn-white" href="tel:07643930693">07643 930 693</a>
+
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=85&auto=format&fit=crop" alt="Innenbereich eines Friseursalons mit heller, gepflegter Atmosphäre." loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="gallery-shell">
+          <div class="gallery-head">
+            <div>
+              <span class="eyebrow eyebrow-dark">Salon-Galerie</span>
+              <h2 style="margin-top:14px;">Bilder, die Vertrauen aufbauen.</h2>
+            </div>
+            <p>Die Galerie nutzt große Flächen, klare Bildführung und Platzhalter für eigene Inhalte, damit die Seite schon jetzt hochwertig wirkt und später mit echten Fotos noch stärker wird.</p>
+          </div>
+
+          <div class="gallery-grid">
+            <article class="gallery-item large">
+              <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1200&q=85&auto=format&fit=crop" alt="Heller Friseursalon mit stilvoller Einrichtung und ruhiger Atmosphäre." loading="lazy">
+              <div class="gallery-caption">Salon &amp; Atmosphäre</div>
+            </article>
+
+            <article class="gallery-item">
+              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=85&auto=format&fit=crop" alt="Stylistin bei der Arbeit an einer Kundin im Salon." loading="lazy">
+              <div class="gallery-caption">Styling &amp; Handwerk</div>
+            </article>
+
+            <article class="gallery-item">
+              <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=1200&q=85&auto=format&fit=crop" alt="Coloration und Haarpflege während einer Behandlung." loading="lazy">
+              <div class="gallery-caption">Farbe &amp; Pflege</div>
+            </article>
+
+            <article class="gallery-item">
+              <div class="gallery-placeholder">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="rgba(31,52,41,.35)" stroke-width="1.5" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <path d="m21 15-5-5L5 21"></path>
+                </svg>
+                <strong>Eigenes Salonbild</strong>
+                <span>Hier später ein echtes Foto vom Innenbereich, Empfang oder Wartebereich einfügen.</span>
+              </div>
+            </article>
+
+            <article class="gallery-item">
+              <div class="gallery-placeholder">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="rgba(31,52,41,.35)" stroke-width="1.5" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <path d="m21 15-5-5L5 21"></path>
+                </svg>
+                <strong>Teambild</strong>
+                <span>Hier später ein authentisches Gruppenbild oder ein Foto aus dem Arbeitsalltag einfügen.</span>
+              </div>
+            </article>
+
+            <article class="gallery-item">
+              <div class="gallery-placeholder">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="rgba(31,52,41,.35)" stroke-width="1.5" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <path d="m21 15-5-5L5 21"></path>
+                </svg>
+                <strong>Ergebnisfoto</strong>
+                <span>Perfekt für Schnitt, Farbe oder ein fertiges Styling aus echter Kundenarbeit.</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vorhernachher">
+      <div class="wrap">
+        <div class="compare-shell">
+          <div class="compare-head">
+            <div>
+              <span class="eyebrow eyebrow-dark">Vorher / Nachher</span>
+              <h2 style="margin-top:14px;">Veränderung sichtbar machen.</h2>
+            </div>
+            <p>Vorher-/Nachher-Bereiche eignen sich besonders gut für Friseur-Websites, weil Ergebnisse sofort verständlich werden und Nutzer nicht erst lange Texte lesen müssen.</p>
+          </div>
+
+          <div class="compare-grid">
+            <article class="compare-card">
+              <div class="compare-visual">
+                <div class="compare-box">
+                  <span class="compare-label">Vorher</span>
+                  <div class="compare-content">
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="rgba(31,52,41,.38)" stroke-width="1.5" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                      <path d="m21 15-5-5L5 21"></path>
+                    </svg>
+                    <strong>Vorher-Foto</strong>
+                    <span>Zum Beispiel Ausgangssituation vor Schnitt oder Farbe.</span>
+                  </div>
+                </div>
+
+                <div class="compare-box">
+                  <span class="compare-label">Nachher</span>
+                  <div class="compare-content">
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="rgba(31,52,41,.38)" stroke-width="1.5" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                      <path d="m21 15-5-5L5 21"></path>
+                    </svg>
+                    <strong>Nachher-Foto</strong>
+                    <span>Zum Beispiel fertiges Ergebnis mit Schnitt und Styling.</span>
+                  </div>
+                </div>
+              </div>
+
+              <h3>Schnitt &amp; Styling</h3>
+              <p>Ideal für sichtbare Formveränderungen, frische Längen, Pony-Anpassungen oder ein elegantes Finish nach dem Termin.</p>
+            </article>
+
+            <article class="compare-card">
+              <div class="compare-visual">
+                <div class="compare-box">
+                  <span class="compare-label">Vorher</span>
+                  <div class="compare-content">
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="rgba(31,52,41,.38)" stroke-width="1.5" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                      <path d="m21 15-5-5L5 21"></path>
+                    </svg>
+                    <strong>Vorher-Foto</strong>
+                    <span>Zum Beispiel Ausgangsfarbe oder verblasste Strähnen.</span>
+                  </div>
+                </div>
+
+                <div class="compare-box">
+                  <span class="compare-label">Nachher</span>
+                  <div class="compare-content">
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="rgba(31,52,41,.38)" stroke-width="1.5" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                      <path d="m21 15-5-5L5 21"></path>
+                    </svg>
+                    <strong>Nachher-Foto</strong>
+                    <span>Zum Beispiel frische Farbe, mehr Tiefe oder neuer Glanz.</span>
+                  </div>
+                </div>
+              </div>
+
+              <h3>Farbe &amp; Strähnen</h3>
+              <p>Perfekt für Balayage, Farbauffrischung, Strähnen oder deutlich sichtbar gepflegtere, lebendigere Haarwirkung.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap story-grid">
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=85&auto=format&fit=crop" alt="Pflegeprodukte und stilvoller Bereich im Friseursalon." loading="lazy">
+        </div>
+
+        <div class="card">
+          <span class="eyebrow eyebrow-dark">Eigene Bilder</span>
+          <h2 style="margin-top:16px;">Was die Galerie später noch stärker macht.</h2>
+          <p style="margin-top:14px;">Mit echten Bildern vom Salon, dem Team und fertigen Ergebnissen steigt der Wert der gesamten Website sofort. Gerade bei lokalen Dienstleistungen entscheiden Authentizität und sichtbare Qualität oft stärker als lange Texte.</p>
+
+          <div class="mini-points">
+            <div class="mini">
+              <strong>Innenbereich</strong>
+              <span>Zeigt Stil, Sauberkeit und Atmosphäre des Salons.</span>
+            </div>
+            <div class="mini">
+              <strong>Teamfotos</strong>
+              <span>Macht die Website persönlicher und vertrauenswürdiger.</span>
+            </div>
+            <div class="mini">
+              <strong>Ergebnisfotos</strong>
+              <span>Verkauft Qualität viel besser als reine Beschreibungen.</span>
+            </div>
+            <div class="mini">
+              <strong>Vorher / Nachher</strong>
+              <span>Besonders stark für Social Proof und sichtbare Veränderung.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap cta-grid">
+        <div class="cta-card">
+          <h2>Bereit für Ihren Termin?</h2>
+          <p>Rufen Sie direkt an und vereinbaren Sie unkompliziert Ihren nächsten Besuch bei Friseur Creativ in Herbolzheim.</p>
+          <div class="cta-actions">
+            <a class="btn btn-white" href="tel:07643930693">07643 930 693</a>
+            <a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&destination=Rheinhausenstra%C3%9Fe+32%2C+79336+Herbolzheim" target="_blank" rel="noopener">Route öffnen</a>
+          </div>
+        </div>
+
+        <div class="kontakt-card">
+          <h3>Kontakt</h3>
+          <p>Friseur Creativ · Rheinhausenstraße 32 · 79336 Herbolzheim</p>
+          <div class="contact-lines">
+            <a class="contact-line" href="tel:07643930693">Telefon: 07643 930 693</a>
+            <a class="contact-line" href="mailto:info@friseur-creativ.com">E-Mail: info@friseur-creativ.com</a>
+            <a class="contact-line" href="index.html">Zur Startseite</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
+
   <footer>
     <div class="wrap">
       <div class="footer-inner">
         <div class="footer-grid">
-          <div><h4>Friseur Creativ</h4><p>Persönliche Beratung, moderne Schnitte und Farbtechniken – ein Salon, auf dessen Besuch man sich freut.</p></div>
-          <div><h4>Kontakt</h4><div class="footer-links"><a href="tel:07643930693">07643 930 693</a><a href="mailto:info@friseur-creativ.com">info@friseur-creativ.com</a><span>Rheinhausenstraße 32<br>79336 Herbolzheim</span></div></div>
-          <div><h4>Links</h4><div class="footer-links"><a href="galerie.html">Galerie</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div>
+          <div>
+            <h4>Friseur Creativ</h4>
+            <p>Persönliche Beratung, moderne Schnitte und Farbtechniken – ein Salon, auf dessen Besuch man sich gerne freut.</p>
+          </div>
+
+          <div>
+            <h4>Kontakt</h4>
+            <div class="footer-links">
+              <a href="tel:07643930693">07643 930 693</a>
+              <a href="mailto:info@friseur-creativ.com">info@friseur-creativ.com</a>
+              <span>Rheinhausenstraße 32<br>79336 Herbolzheim</span>
+            </div>
+          </div>
+
+          <div>
+            <h4>Links</h4>
+            <div class="footer-links">
+              <a href="galerie.html">Galerie</a>
+              <a href="impressum.html">Impressum</a>
+              <a href="datenschutz.html">Datenschutz</a>
+            </div>
+          </div>
         </div>
-        <div class="footer-bottom"><span>© 2026 Friseur Creativ · Inh. Tobias Beck</span><span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span></div>
+
+        <div class="footer-bottom">
+          <span>© 2026 Friseur Creativ · Inh. Tobias Beck</span>
+          <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+        </div>
       </div>
     </div>
   </footer>
-  <div class="float-cta"><a href="tel:07643930693">📞 Jetzt Termin anfragen</a></div>
+
+  <div class="float-cta">
+    <a href="tel:07643930693">📞 Jetzt Termin anfragen</a>
+  </div>
+
   <script>
-  (function(){
-    const btn=document.querySelector('.menu-btn');
-    const menu=document.getElementById('navMenu');
-    if(!btn||!menu)return;
-    btn.addEventListener('click',()=>{const o=menu.classList.toggle('open');btn.setAttribute('aria-expanded',o);});
-    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');btn.setAttribute('aria-expanded','false');}));
-  })();
+    (function(){
+      const btn = document.querySelector('.menu-btn');
+      const menu = document.getElementById('navMenu');
+      if(!btn || !menu) return;
+
+      btn.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+
+      menu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
   </script>
 </body>
 </html>
