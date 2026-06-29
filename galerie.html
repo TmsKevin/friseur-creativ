@@ -5,97 +5,343 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galerie | Friseur Creativ Herbolzheim</title>
   <style>
-    :root{
-      --surface:#fff; --text:#121815; --muted:#67746d; --line:rgba(18,24,21,.08); --brand:#264437; --brand-2:#6f8f7b;
-      --dark:#0e1411; --shadow:0 24px 70px rgba(14,20,17,.09); --container:1500px;
-    }
-    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--text);background:linear-gradient(180deg,#f7faf7 0%,#eef3ef 100%)}
-    a{text-decoration:none;color:inherit} img{max-width:100%;display:block}
-    .container{width:min(calc(100% - 20px), var(--container));margin:0 auto}
-    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-    .brand{display:flex;align-items:center;gap:12px}.brand-badge{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;font-weight:800}.brand-copy strong{display:block}.brand-copy span{display:block;color:var(--muted);font-size:.86rem}
-    .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.nav-cta{padding:13px 18px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700}
-    .hero{padding:14px 0 10px}.hero-card{min-height:430px;border-radius:30px;overflow:hidden;position:relative;box-shadow:var(--shadow);background:linear-gradient(180deg, rgba(14,20,17,.18) 0%, rgba(14,20,17,.62) 100%),url("https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fcf2005fd4d94ec3b3e8d4ee5c7b5d23e0b5201b.jpg") center/cover}
-    .hero-content{position:absolute;left:30px;right:30px;bottom:28px;color:#fff;max-width:620px}
-    h1{margin:0 0 10px;font-size:clamp(2.2rem,5vw,4.5rem);line-height:1.02;letter-spacing:-.04em}.hero-content p{margin:0;color:rgba(255,255,255,.9)}
-    .gallery{padding:18px 0 28px}
-    .gallery-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
-    .stack{display:grid;gap:16px}
-    .img-card{background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
-    .img-card img{width:100%;height:100%;object-fit:cover}
-    .large{min-height:560px}.medium{min-height:272px}.small{min-height:240px}
-    .caption{padding:16px 18px}.caption strong{display:block;margin-bottom:6px}.caption p{margin:0;color:var(--muted)}
-    .footer-box{margin:0 0 28px;background:var(--dark);color:#eef5ef;border-radius:26px;padding:24px}.footer-box a,.footer-box p{color:rgba(238,245,239,.82)}
-    @media (max-width:900px){.gallery-grid{grid-template-columns:1fr}.large,.medium,.small{min-height:320px}.nav{padding:14px 0;flex-direction:column;align-items:flex-start}.nav-links{width:100%}}
+
+:root{
+  --bg:#f4f6f2;
+  --surface:#ffffff;
+  --surface-2:#f0f3ee;
+  --text:#0f1510;
+  --muted:#5e6b62;
+  --line:rgba(15,21,16,.07);
+  --brand:#1e3328;
+  --brand-mid:#3a5c4a;
+  --brand-light:#6a8c78;
+  --accent:#d6e4d9;
+  --dark:#0a0f0b;
+  --gold:#b8a96a;
+  --shadow-sm:0 4px 18px rgba(10,15,11,.06);
+  --shadow:0 20px 60px rgba(10,15,11,.10);
+  --shadow-lg:0 40px 100px rgba(10,15,11,.14);
+  --radius-xl:32px;
+  --radius-lg:24px;
+  --radius-md:16px;
+  --container:1480px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  color:var(--text);
+  background:#f4f6f2;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%;height:auto}
+
+/* ── LAYOUT ── */
+.wrap{width:min(calc(100% - 32px),var(--container));margin:0 auto}
+
+/* ── HEADER / NAV ── */
+header{
+  position:sticky;top:0;z-index:200;
+  background:rgba(244,246,242,.90);
+  backdrop-filter:blur(20px) saturate(1.6);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  height:80px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.brand-mark{
+  width:44px;height:44px;border-radius:14px;
+  background:linear-gradient(145deg,var(--brand),var(--brand-mid));
+  display:grid;place-items:center;
+  color:#fff;font-weight:800;font-size:.88rem;letter-spacing:.06em;
+  box-shadow:var(--shadow-sm);
+}
+.brand-text strong{display:block;font-size:.98rem;font-weight:700;letter-spacing:.02em}
+.brand-text span{display:block;font-size:.8rem;color:var(--muted);margin-top:1px}
+.nav-menu{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.nav-menu a{
+  padding:8px 13px;border-radius:999px;font-size:.9rem;font-weight:550;color:var(--text);
+  transition:background .15s,color .15s;
+}
+.nav-menu a:hover{background:rgba(15,21,16,.06)}
+.nav-cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:11px 18px;border-radius:999px;
+  background:var(--brand);color:#fff !important;font-weight:700;font-size:.9rem;
+  box-shadow:var(--shadow-sm);
+  transition:opacity .15s;
+}
+.nav-cta:hover{opacity:.88}
+.menu-btn{
+  display:none;border:1px solid var(--line);background:var(--surface);
+  border-radius:12px;padding:10px 13px;font:700 .88rem/1 inherit;color:var(--text);cursor:pointer;
+}
+
+/* ── FLOATING CTA (mobile) ── */
+.float-cta{display:none}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:52px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:.98rem;
+  transition:.2s ease;
+}
+.btn-white{background:#fff;color:var(--dark)}
+.btn-ghost{background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.btn-brand{background:var(--brand);color:#fff;box-shadow:var(--shadow-sm)}
+.btn-outline{background:transparent;color:var(--brand);border:1.5px solid var(--brand)}
+
+/* ── EYEBROW ── */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:600;letter-spacing:.04em;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.9);
+}
+.eyebrow-dark{
+  background:var(--accent);border:1px solid rgba(15,21,16,.09);
+  color:var(--brand);
+}
+
+/* ── SECTION ── */
+section{padding:40px 0}
+
+/* ── FOOTER ── */
+footer{padding:20px 0 36px}
+.footer-inner{
+  background:var(--dark);color:#e8f0ea;
+  border-radius:var(--radius-xl);padding:32px;
+}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:20px}
+.footer-inner h4{font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px;color:rgba(232,240,234,.6)}
+.footer-inner p,.footer-inner a,.footer-inner span{color:rgba(232,240,234,.75);font-size:.9rem}
+.footer-inner a:hover{color:#fff}
+.footer-links{display:grid;gap:7px}
+.footer-bottom{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom span,.footer-bottom a{font-size:.82rem;color:rgba(232,240,234,.45)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .services-grid{grid-template-columns:repeat(2,1fr) !important}
+  .footer-grid{grid-template-columns:1fr 1fr !important}
+}
+@media(max-width:860px){
+  .menu-btn{display:inline-flex}
+  .nav{height:auto;padding:13px 0;flex-wrap:wrap}
+  .nav-menu{
+    display:none;width:100%;flex-direction:column;align-items:stretch;gap:6px;
+    padding:8px 0 4px;
+  }
+  .nav-menu.open{display:flex}
+  .nav-menu a{
+    padding:12px 14px;background:var(--surface);border:1px solid var(--line);
+    border-radius:13px;font-size:.98rem;
+  }
+  .nav-cta{width:100%;justify-content:center}
+}
+@media(max-width:700px){
+  .wrap{width:min(calc(100% - 16px),var(--container))}
+  section{padding:22px 0}
+  .footer-grid{grid-template-columns:1fr !important}
+  .footer-inner{border-radius:20px;padding:22px}
+  .float-cta{
+    display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:300;
+  }
+  .float-cta a{
+    display:flex;align-items:center;justify-content:center;
+    min-height:56px;border-radius:999px;background:var(--brand);color:#fff;font-weight:800;
+    box-shadow:0 14px 30px rgba(30,51,40,.30);
+  }
+  body{padding-bottom:80px}
+}
+
+
+.gal-hero{
+  min-height:480px;border-radius:var(--radius-xl);overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(10,15,11,.08) 0%,rgba(10,15,11,.68) 100%),
+    url("https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fcf2005fd4d94ec3b3e8d4ee5c7b5d23e0b5201b.jpg") center/cover;
+  display:flex;align-items:flex-end;padding:44px;
+  box-shadow:var(--shadow-lg);
+}
+.gal-hero h1{color:#fff;font-size:clamp(2.8rem,5.5vw,5.5rem);letter-spacing:-.06em;line-height:.96}
+.gal-hero p{color:rgba(255,255,255,.85);margin-top:10px;font-size:1rem;max-width:50ch}
+.gal-intro{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow);
+  margin-top:14px;
+}
+.gal-intro p{color:var(--muted);max-width:72ch}
+.gal-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:auto auto auto;
+  gap:14px;margin-top:14px;
+}
+.gal-item{
+  border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);
+  background:var(--accent);
+}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block}
+.gal-item.tall{grid-row:span 2}
+.gal-item.wide{grid-column:span 2}
+.gal-placeholder{
+  min-height:260px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(160deg,var(--surface-2),var(--accent));
+  border:2px dashed rgba(30,51,40,.20);
+}
+.gal-placeholder span{font-size:.88rem;color:var(--muted);text-align:center;padding:0 16px}
+.gal-note{
+  background:linear-gradient(140deg,var(--brand),var(--brand-mid));
+  border-radius:var(--radius-xl);padding:36px;color:#fff;
+  text-align:center;margin-top:14px;box-shadow:var(--shadow-lg);
+}
+.gal-note h2{font-size:clamp(1.8rem,3vw,2.8rem);letter-spacing:-.04em;margin-bottom:10px}
+.gal-note p{color:rgba(255,255,255,.85);margin-bottom:20px;font-size:.96rem;max-width:55ch;margin-left:auto;margin-right:auto}
+@media(max-width:900px){
+  .gal-grid{grid-template-columns:1fr 1fr !important}
+  .gal-item.tall,.gal-item.wide{grid-row:unset;grid-column:unset}
+}
+@media(max-width:600px){
+  .gal-grid{grid-template-columns:1fr !important}
+  .gal-hero{min-height:300px;padding:22px 16px;border-radius:20px}
+}
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="nav">
-        <a class="brand" href="index.html">
-          <div class="brand-badge">FC</div>
-          <div class="brand-copy">
-            <strong>Friseur Creativ</strong>
-            <span>Herbolzheim</span>
-          </div>
-        </a>
-        <nav class="nav-links">
-          <a href="index.html">Start</a>
-          <a href="galerie.html">Galerie</a>
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
-          <a class="nav-cta" href="tel:07643930693">Termin anfragen</a>
-        </nav>
-      </div>
-    </header>
 
-    <section class="hero">
-      <div class="hero-card">
-        <div class="hero-content">
-          <h1>Einblicke in Stil, Atmosphäre und Handwerk</h1>
-          <p>Die Galerie ergänzt die bestehende Salonpräsentation um eine viel stärkere visuelle Wirkung. [page:30]</p>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <div class="brand-mark">FC</div>
+        <div class="brand-text">
+          <strong>Friseur Creativ</strong>
+          <span>Herbolzheim</span>
+        </div>
+      </a>
+      <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="navMenu">Menü</button>
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html#leistungen">Leistungen</a>
+        <a href="index.html#philosophie">Philosophie</a>
+        <a href="index.html#team">Team</a>
+        <a href="index.html#kontakt">Kontakt</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a class="nav-cta" href="tel:07643930693">Termin anfragen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="gal-hero">
+          <div>
+            <span class="eyebrow">Einblicke · Atmosphäre · Handwerk</span>
+            <h1>Galerie.</h1>
+            <p>Impressionen aus dem Salon – Atmosphäre, Schnitte, Farbe und das Team hinter Friseur Creativ.</p>
+          </div>
+        </div>
+
+        <div class="gal-intro">
+          <p>Diese Galerie gibt einen Einblick in die Arbeit und das Ambiente von Friseur Creativ in Herbolzheim. Hier entstehen individuelle Ergebnisse – persönlich, hochwertig und auf Sie zugeschnitten.</p>
+        </div>
+
+        <div class="gal-grid">
+          <div class="gal-item tall">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fcf2005fd4d94ec3b3e8d4ee5c7b5d23e0b5201b.jpg" alt="Salon Atmosphäre">
+          </div>
+          <div class="gal-item">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/062fd8fb18ae14bd802291d381ed248f2b9bc934.jpg" alt="Stylistin bei der Arbeit">
+          </div>
+          <div class="gal-item">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a5a81410108467eea03c4c3e5f6810196bc49c23.jpg" alt="Farbbehandlung">
+          </div>
+          <div class="gal-item wide gal-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(30,51,40,.3)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span>Hier entsteht Ihre Galerie.<br>Eigene Salonfotos einfach hinzufügen.</span>
+          </div>
+          <div class="gal-item gal-placeholder">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="rgba(30,51,40,.3)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span>Teambild</span>
+          </div>
+          <div class="gal-item gal-placeholder">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="rgba(30,51,40,.3)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span>Vorher / Nachher</span>
+          </div>
+        </div>
+
+        <div class="gal-note">
+          <h2>Einen Termin vereinbaren?</h2>
+          <p>Rufen Sie einfach an – wir freuen uns auf Ihren Besuch in Herbolzheim.</p>
+          <a class="btn btn-white" href="tel:07643930693">07643 930 693</a>
         </div>
       </div>
     </section>
+  </main>
 
-    <section class="gallery">
-      <div class="gallery-grid">
-        <article class="img-card large">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fcf2005fd4d94ec3b3e8d4ee5c7b5d23e0b5201b.jpg" alt="Moderner Salon-Innenraum">
-        </article>
 
-        <div class="stack">
-          <article class="img-card medium">
-            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/062fd8fb18ae14bd802291d381ed248f2b9bc934.jpg" alt="Friseurin bei der Arbeit">
-          </article>
-          <article class="img-card medium">
-            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a5a81410108467eea03c4c3e5f6810196bc49c23.jpg" alt="Farbbehandlung im Salon">
-          </article>
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div>
+            <h4>Friseur Creativ</h4>
+            <p>Persönliche Beratung, moderne Schnitte und Farbtechniken – ein Salon, auf dessen Besuch man sich freut.</p>
+          </div>
+          <div>
+            <h4>Kontakt</h4>
+            <div class="footer-links">
+              <a href="tel:07643930693">07643 930 693</a>
+              <a href="mailto:info@friseur-creativ.com">info@friseur-creativ.com</a>
+              <span>Rheinhausenstraße 32<br>79336 Herbolzheim</span>
+            </div>
+          </div>
+          <div>
+            <h4>Links</h4>
+            <div class="footer-links">
+              <a href="galerie.html">Galerie</a>
+              <a href="impressum.html">Impressum</a>
+              <a href="datenschutz.html">Datenschutz</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 Friseur Creativ · Inh. Tobias Beck</span>
+          <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
         </div>
       </div>
+    </div>
+  </footer>
 
-      <div class="gallery-grid" style="margin-top:16px;grid-template-columns:.9fr 1.1fr;">
-        <article class="img-card small">
-          <div class="caption">
-            <strong>Salon & Atmosphäre</strong>
-            <p>Die aktuelle Website betont das persönliche Erlebnis beim Besuch; genau dafür ist dieser Bildtyp ideal. [page:30]</p>
-          </div>
-        </article>
-        <article class="img-card small">
-          <div class="caption">
-            <strong>Farbe & Präzision</strong>
-            <p>Die Website nennt unterschiedliche Farb- und Strähntechniken sowie intensive Reparaturen für das Haar. [page:30]</p>
-          </div>
-        </article>
-      </div>
-    </section>
+  <div class="float-cta"><a href="tel:07643930693">📞 Jetzt Termin anfragen</a></div>
 
-    <footer>
-      <div class="footer-box">
-        <p>Friseur Creativ · Rheinhausenstraße 32 · 79336 Herbolzheim · <a href="tel:07643930693">07643 930 693</a></p>
-      </div>
-    </footer>
-  </div>
+
+  <script>
+    (function(){
+      const btn = document.querySelector('.menu-btn');
+      const menu = document.getElementById('navMenu');
+      if(!btn||!menu) return;
+      btn.addEventListener('click',()=>{
+        const open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      });
+      menu.querySelectorAll('a').forEach(a=>{
+        a.addEventListener('click',()=>{
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+  </script>
+
 </body>
 </html>

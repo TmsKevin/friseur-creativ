@@ -3,64 +3,296 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Impressum | Friseur Creativ</title>
+  <title>Impressum | Friseur Creativ Herbolzheim</title>
   <style>
-    :root{--text:#121815;--muted:#67746d;--line:rgba(18,24,21,.08);--brand:#264437;--brand-2:#6f8f7b;--dark:#0e1411;--surface:#fff;--shadow:0 24px 70px rgba(14,20,17,.09);--container:1080px}
-    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;background:linear-gradient(180deg,#f7faf7 0%,#eef3ef 100%);color:var(--text)}
-    a{text-decoration:none;color:inherit}.container{width:min(calc(100% - 20px), var(--container));margin:0 auto}
-    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-    .brand{display:flex;align-items:center;gap:12px}.brand-badge{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;font-weight:800}
-    .brand-copy strong{display:block}.brand-copy span{display:block;color:var(--muted);font-size:.86rem}
-    .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-    .box{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:30px;box-shadow:var(--shadow);margin:16px 0 28px}
-    h1{margin:0 0 16px;font-size:clamp(2rem,4vw,3.3rem);line-height:1.04}.box p{color:var(--muted)}
-    h2{margin:24px 0 10px}
-    @media (max-width:800px){.nav{padding:14px 0;flex-direction:column;align-items:flex-start}}
+
+:root{
+  --bg:#f4f6f2;
+  --surface:#ffffff;
+  --surface-2:#f0f3ee;
+  --text:#0f1510;
+  --muted:#5e6b62;
+  --line:rgba(15,21,16,.07);
+  --brand:#1e3328;
+  --brand-mid:#3a5c4a;
+  --brand-light:#6a8c78;
+  --accent:#d6e4d9;
+  --dark:#0a0f0b;
+  --gold:#b8a96a;
+  --shadow-sm:0 4px 18px rgba(10,15,11,.06);
+  --shadow:0 20px 60px rgba(10,15,11,.10);
+  --shadow-lg:0 40px 100px rgba(10,15,11,.14);
+  --radius-xl:32px;
+  --radius-lg:24px;
+  --radius-md:16px;
+  --container:1480px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  color:var(--text);
+  background:#f4f6f2;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%;height:auto}
+
+/* ── LAYOUT ── */
+.wrap{width:min(calc(100% - 32px),var(--container));margin:0 auto}
+
+/* ── HEADER / NAV ── */
+header{
+  position:sticky;top:0;z-index:200;
+  background:rgba(244,246,242,.90);
+  backdrop-filter:blur(20px) saturate(1.6);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  height:80px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.brand-mark{
+  width:44px;height:44px;border-radius:14px;
+  background:linear-gradient(145deg,var(--brand),var(--brand-mid));
+  display:grid;place-items:center;
+  color:#fff;font-weight:800;font-size:.88rem;letter-spacing:.06em;
+  box-shadow:var(--shadow-sm);
+}
+.brand-text strong{display:block;font-size:.98rem;font-weight:700;letter-spacing:.02em}
+.brand-text span{display:block;font-size:.8rem;color:var(--muted);margin-top:1px}
+.nav-menu{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.nav-menu a{
+  padding:8px 13px;border-radius:999px;font-size:.9rem;font-weight:550;color:var(--text);
+  transition:background .15s,color .15s;
+}
+.nav-menu a:hover{background:rgba(15,21,16,.06)}
+.nav-cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:11px 18px;border-radius:999px;
+  background:var(--brand);color:#fff !important;font-weight:700;font-size:.9rem;
+  box-shadow:var(--shadow-sm);
+  transition:opacity .15s;
+}
+.nav-cta:hover{opacity:.88}
+.menu-btn{
+  display:none;border:1px solid var(--line);background:var(--surface);
+  border-radius:12px;padding:10px 13px;font:700 .88rem/1 inherit;color:var(--text);cursor:pointer;
+}
+
+/* ── FLOATING CTA (mobile) ── */
+.float-cta{display:none}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:52px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:.98rem;
+  transition:.2s ease;
+}
+.btn-white{background:#fff;color:var(--dark)}
+.btn-ghost{background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.btn-brand{background:var(--brand);color:#fff;box-shadow:var(--shadow-sm)}
+.btn-outline{background:transparent;color:var(--brand);border:1.5px solid var(--brand)}
+
+/* ── EYEBROW ── */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:600;letter-spacing:.04em;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.9);
+}
+.eyebrow-dark{
+  background:var(--accent);border:1px solid rgba(15,21,16,.09);
+  color:var(--brand);
+}
+
+/* ── SECTION ── */
+section{padding:40px 0}
+
+/* ── FOOTER ── */
+footer{padding:20px 0 36px}
+.footer-inner{
+  background:var(--dark);color:#e8f0ea;
+  border-radius:var(--radius-xl);padding:32px;
+}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:20px}
+.footer-inner h4{font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px;color:rgba(232,240,234,.6)}
+.footer-inner p,.footer-inner a,.footer-inner span{color:rgba(232,240,234,.75);font-size:.9rem}
+.footer-inner a:hover{color:#fff}
+.footer-links{display:grid;gap:7px}
+.footer-bottom{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom span,.footer-bottom a{font-size:.82rem;color:rgba(232,240,234,.45)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .services-grid{grid-template-columns:repeat(2,1fr) !important}
+  .footer-grid{grid-template-columns:1fr 1fr !important}
+}
+@media(max-width:860px){
+  .menu-btn{display:inline-flex}
+  .nav{height:auto;padding:13px 0;flex-wrap:wrap}
+  .nav-menu{
+    display:none;width:100%;flex-direction:column;align-items:stretch;gap:6px;
+    padding:8px 0 4px;
+  }
+  .nav-menu.open{display:flex}
+  .nav-menu a{
+    padding:12px 14px;background:var(--surface);border:1px solid var(--line);
+    border-radius:13px;font-size:.98rem;
+  }
+  .nav-cta{width:100%;justify-content:center}
+}
+@media(max-width:700px){
+  .wrap{width:min(calc(100% - 16px),var(--container))}
+  section{padding:22px 0}
+  .footer-grid{grid-template-columns:1fr !important}
+  .footer-inner{border-radius:20px;padding:22px}
+  .float-cta{
+    display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:300;
+  }
+  .float-cta a{
+    display:flex;align-items:center;justify-content:center;
+    min-height:56px;border-radius:999px;background:var(--brand);color:#fff;font-weight:800;
+    box-shadow:0 14px 30px rgba(30,51,40,.30);
+  }
+  body{padding-bottom:80px}
+}
+
+
+.legal-hero{
+  min-height:340px;border-radius:var(--radius-xl);overflow:hidden;
+  background:linear-gradient(140deg,var(--brand) 0%,var(--brand-mid) 100%);
+  display:flex;align-items:flex-end;padding:44px;
+  box-shadow:var(--shadow-lg);margin-bottom:28px;
+}
+.legal-hero h1{
+  color:#fff;font-size:clamp(2.4rem,5vw,4.5rem);letter-spacing:-.055em;line-height:.97;
+}
+.legal-hero p{color:rgba(255,255,255,.80);margin-top:10px;font-size:.98rem;max-width:52ch}
+.legal-body{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius-xl);padding:40px;box-shadow:var(--shadow);
+  max-width:860px;
+}
+.legal-body h2{font-size:1.35rem;margin:28px 0 8px;letter-spacing:-.02em}
+.legal-body h2:first-child{margin-top:0}
+.legal-body p,.legal-body li{color:var(--muted);font-size:.95rem;line-height:1.65;margin-bottom:10px}
+.legal-body ul{padding-left:18px;margin-bottom:10px}
+.legal-body a{color:var(--brand);text-decoration:underline}
+@media(max-width:700px){
+  .legal-hero{min-height:220px;padding:22px 18px;border-radius:20px}
+  .legal-body{padding:22px;border-radius:20px}
+}
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="nav">
-        <a class="brand" href="index.html">
-          <div class="brand-badge">FC</div>
-          <div class="brand-copy"><strong>Friseur Creativ</strong><span>Herbolzheim</span></div>
-        </a>
-        <nav class="nav-links">
-          <a href="index.html">Start</a>
-          <a href="galerie.html">Galerie</a>
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
-        </nav>
+
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <div class="brand-mark">FC</div>
+        <div class="brand-text">
+          <strong>Friseur Creativ</strong>
+          <span>Herbolzheim</span>
+        </div>
+      </a>
+      <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="navMenu">Menü</button>
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html#leistungen">Leistungen</a>
+        <a href="index.html#philosophie">Philosophie</a>
+        <a href="index.html#team">Team</a>
+        <a href="index.html#kontakt">Kontakt</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a class="nav-cta" href="tel:07643930693">Termin anfragen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="legal-hero">
+          <div>
+            <h1>Impressum.</h1>
+            <p>Angaben gemäß § 5 TMG</p>
+          </div>
+        </div>
+        <div class="legal-body">
+          <h2>Angaben gemäß § 5 TMG</h2>
+          <p><strong>Friseur Creativ</strong><br>Inh. Tobias Beck<br>Rheinhausenstraße 32<br>79336 Herbolzheim</p>
+          <p>E-Mail: <a href="mailto:info@friseur-creativ.com">info@friseur-creativ.com</a><br>Telefon: <a href="tel:07643930693">07643 930 693</a></p>
+
+          <h2>Haftung für Inhalte</h2>
+          <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+          <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+
+          <h2>Haftung für Links</h2>
+          <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+
+          <h2>Urheberrecht</h2>
+          <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+        </div>
       </div>
-    </header>
+    </section>
+  </main>
 
-    <main class="box">
-      <h1>Impressum</h1>
-      <p>Die folgenden Angaben stammen aus dem bestehenden Impressum der aktuellen Website. [page:30]</p>
 
-      <h2>Angaben gemäß § 5 TMG</h2>
-      <p>
-        Friseur Creativ<br>
-        Inh. Tobias Beck<br>
-        Rheinhausenstraße 32<br>
-        79336 Herbolzheim
-      </p>
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div>
+            <h4>Friseur Creativ</h4>
+            <p>Persönliche Beratung, moderne Schnitte und Farbtechniken – ein Salon, auf dessen Besuch man sich freut.</p>
+          </div>
+          <div>
+            <h4>Kontakt</h4>
+            <div class="footer-links">
+              <a href="tel:07643930693">07643 930 693</a>
+              <a href="mailto:info@friseur-creativ.com">info@friseur-creativ.com</a>
+              <span>Rheinhausenstraße 32<br>79336 Herbolzheim</span>
+            </div>
+          </div>
+          <div>
+            <h4>Links</h4>
+            <div class="footer-links">
+              <a href="galerie.html">Galerie</a>
+              <a href="impressum.html">Impressum</a>
+              <a href="datenschutz.html">Datenschutz</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 Friseur Creativ · Inh. Tobias Beck</span>
+          <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-      <p>
-        E-Mail: <a href="mailto:info@friseur-creativ.com">info@friseur-creativ.com</a><br>
-        Telefon: <a href="tel:07643930693">07643 930 693</a>
-      </p>
 
-      <h2>Haftung für Inhalte</h2>
-      <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. [page:30]</p>
+  <script>
+    (function(){
+      const btn = document.querySelector('.menu-btn');
+      const menu = document.getElementById('navMenu');
+      if(!btn||!menu) return;
+      btn.addEventListener('click',()=>{
+        const open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      });
+      menu.querySelectorAll('a').forEach(a=>{
+        a.addEventListener('click',()=>{
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        });
+      });
+    })();
+  </script>
 
-      <h2>Haftung für Links</h2>
-      <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. [page:30]</p>
-
-      <h2>Urheberrecht</h2>
-      <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. [page:30]</p>
-    </main>
-  </div>
 </body>
 </html>
