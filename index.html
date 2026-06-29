@@ -4,404 +4,1101 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Friseur Creativ Herbolzheim – Ihr Friseursalon</title>
-  <meta name="description" content="Friseur Creativ in Herbolzheim – persönliche Beratung, Haarschnitte, Farbtechniken, Styling und ein Salon-Erlebnis, das zu Ihnen passt." />
+  <meta name="description" content="Friseur Creativ in Herbolzheim – persönliche Beratung, präzise Schnitte, Farbtechniken und ein Salon-Erlebnis, das zu Ihnen passt." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root{
+      --bg:#eef2ee;
+      --surface:#ffffff;
+      --surface-2:#f5f7f4;
+      --surface-3:#e5ece6;
+      --text:#101611;
+      --muted:#5d6b61;
+      --line:rgba(16,22,17,.08);
+      --brand:#1f3429;
+      --brand-mid:#375645;
+      --brand-light:#6f8b79;
+      --accent:#dbe7de;
+      --gold:#b7a366;
+      --dark:#0b100c;
+      --ok:#4ade80;
+      --warn:#fb923c;
+      --bad:#f87171;
+      --shadow-sm:0 8px 20px rgba(10,15,11,.06);
+      --shadow:0 18px 45px rgba(10,15,11,.09);
+      --shadow-lg:0 34px 80px rgba(10,15,11,.14);
+      --radius-xl:32px;
+      --radius-lg:24px;
+      --radius-md:18px;
+      --container:1440px;
+    }
 
-:root{
-  --bg:#f4f6f2;
-  --surface:#ffffff;
-  --surface-2:#f0f3ee;
-  --text:#0f1510;
-  --muted:#5e6b62;
-  --line:rgba(15,21,16,.07);
-  --brand:#1e3328;
-  --brand-mid:#3a5c4a;
-  --brand-light:#6a8c78;
-  --accent:#d6e4d9;
-  --dark:#0a0f0b;
-  --gold:#b8a96a;
-  --shadow-sm:0 4px 18px rgba(10,15,11,.06);
-  --shadow:0 20px 60px rgba(10,15,11,.10);
-  --shadow-lg:0 40px 100px rgba(10,15,11,.14);
-  --radius-xl:32px;
-  --radius-lg:24px;
-  --radius-md:16px;
-  --container:1480px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-body{
-  font-family:'Inter',system-ui,-apple-system,sans-serif;
-  color:var(--text);
-  background:#f4f6f2;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%;height:auto}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{
+      font-family:'Inter',system-ui,-apple-system,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
 
-/* ── LAYOUT ── */
-.wrap{width:min(calc(100% - 32px),var(--container));margin:0 auto}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%;height:auto}
 
-/* ── HEADER / NAV ── */
-header{
-  position:sticky;top:0;z-index:200;
-  background:rgba(244,246,242,.90);
-  backdrop-filter:blur(20px) saturate(1.6);
-  border-bottom:1px solid var(--line);
-}
-.nav{
-  height:80px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-}
-.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
-.brand-mark{
-  width:44px;height:44px;border-radius:14px;
-  background:linear-gradient(145deg,var(--brand),var(--brand-mid));
-  display:grid;place-items:center;
-  color:#fff;font-weight:800;font-size:.88rem;letter-spacing:.06em;
-  box-shadow:var(--shadow-sm);
-}
-.brand-text strong{display:block;font-size:.98rem;font-weight:700;letter-spacing:.02em}
-.brand-text span{display:block;font-size:.8rem;color:var(--muted);margin-top:1px}
-.nav-menu{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.nav-menu a{
-  padding:8px 13px;border-radius:999px;font-size:.9rem;font-weight:550;color:var(--text);
-  transition:background .15s,color .15s;
-}
-.nav-menu a:hover{background:rgba(15,21,16,.06)}
-.nav-cta{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:11px 18px;border-radius:999px;
-  background:var(--brand);color:#fff !important;font-weight:700;font-size:.9rem;
-  box-shadow:var(--shadow-sm);
-  transition:opacity .15s;
-}
-.nav-cta:hover{opacity:.88}
-.menu-btn{
-  display:none;border:1px solid var(--line);background:var(--surface);
-  border-radius:12px;padding:10px 13px;font:700 .88rem/1 inherit;color:var(--text);cursor:pointer;
-}
+    .wrap{width:min(calc(100% - 32px),var(--container));margin:0 auto}
+    section{padding:34px 0}
 
-/* ── FLOATING CTA (mobile) ── */
-.float-cta{display:none}
+    header{
+      position:sticky;
+      top:0;
+      z-index:300;
+      background:rgba(238,242,238,.92);
+      backdrop-filter:blur(18px) saturate(1.5);
+      border-bottom:1px solid var(--line);
+    }
 
-/* ── BUTTONS ── */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-height:52px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:.98rem;
-  transition:.2s ease;
-}
-.btn-white{background:#fff;color:var(--dark)}
-.btn-ghost{background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.18)}
-.btn-brand{background:var(--brand);color:#fff;box-shadow:var(--shadow-sm)}
-.btn-outline{background:transparent;color:var(--brand);border:1.5px solid var(--brand)}
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
 
-/* ── EYEBROW ── */
-.eyebrow{
-  display:inline-flex;align-items:center;gap:7px;
-  padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:600;letter-spacing:.04em;
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.9);
-}
-.eyebrow-dark{
-  background:var(--accent);border:1px solid rgba(15,21,16,.09);
-  color:var(--brand);
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-shrink:0;
+    }
 
-/* ── SECTION ── */
-section{padding:40px 0}
+    .brand-mark{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-weight:800;
+      font-size:.88rem;
+      letter-spacing:.06em;
+      background:linear-gradient(145deg,var(--brand),var(--brand-mid));
+      box-shadow:var(--shadow-sm);
+    }
 
-/* ── FOOTER ── */
-footer{padding:20px 0 36px}
-.footer-inner{
-  background:var(--dark);color:#e8f0ea;
-  border-radius:var(--radius-xl);padding:32px;
-}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:20px}
-.footer-inner h4{font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px;color:rgba(232,240,234,.6)}
-.footer-inner p,.footer-inner a,.footer-inner span{color:rgba(232,240,234,.75);font-size:.9rem}
-.footer-inner a:hover{color:#fff}
-.footer-links{display:grid;gap:7px}
-.footer-bottom{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.footer-bottom span,.footer-bottom a{font-size:.82rem;color:rgba(232,240,234,.45)}
+    .brand-text strong{
+      display:block;
+      font-size:.98rem;
+      font-weight:700;
+      letter-spacing:.01em;
+    }
 
-/* ── RESPONSIVE ── */
-@media(max-width:1100px){
-  .services-grid{grid-template-columns:repeat(2,1fr) !important}
-  .footer-grid{grid-template-columns:1fr 1fr !important}
-}
-@media(max-width:860px){
-  .menu-btn{display:inline-flex}
-  .nav{height:auto;padding:13px 0;flex-wrap:wrap}
-  .nav-menu{
-    display:none;width:100%;flex-direction:column;align-items:stretch;gap:6px;
-    padding:8px 0 4px;
-  }
-  .nav-menu.open{display:flex}
-  .nav-menu a{
-    padding:12px 14px;background:var(--surface);border:1px solid var(--line);
-    border-radius:13px;font-size:.98rem;
-  }
-  .nav-cta{width:100%;justify-content:center}
-}
-@media(max-width:700px){
-  .wrap{width:min(calc(100% - 16px),var(--container))}
-  section{padding:22px 0}
-  .footer-grid{grid-template-columns:1fr !important}
-  .footer-inner{border-radius:20px;padding:22px}
-  .float-cta{
-    display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:300;
-  }
-  .float-cta a{
-    display:flex;align-items:center;justify-content:center;
-    min-height:56px;border-radius:999px;background:var(--brand);color:#fff;font-weight:800;
-    box-shadow:0 14px 30px rgba(30,51,40,.30);
-  }
-  body{padding-bottom:80px}
-}
+    .brand-text span{
+      display:block;
+      font-size:.8rem;
+      color:var(--muted);
+      margin-top:1px;
+    }
 
+    .menu-btn{
+      display:none;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--text);
+      min-height:48px;
+      padding:0 14px;
+      border-radius:14px;
+      font:700 .92rem/1 inherit;
+      cursor:pointer;
+    }
 
-/* ── HERO ── */
-.hero{padding:12px 0 20px}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:stretch}
-.hero-visual{
-  min-height:760px;border-radius:var(--radius-xl);overflow:hidden;position:relative;
-  box-shadow:var(--shadow-lg);
-  background:
-    linear-gradient(180deg,rgba(10,15,11,.10) 0%,rgba(10,15,11,.38) 40%,rgba(10,15,11,.86) 100%),
-    url("https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fcf2005fd4d94ec3b3e8d4ee5c7b5d23e0b5201b.jpg") center/cover;
-  display:flex;align-items:flex-end;padding:52px;
-}
-.hero-copy{color:#fff;max-width:680px}
-.hero-copy h1{
-  font-size:clamp(3rem,5.5vw,6rem);line-height:.95;letter-spacing:-.06em;
-  margin:16px 0 16px;max-width:9ch;
-}
-.hero-copy p{font-size:1.08rem;color:rgba(255,255,255,.88);max-width:50ch;line-height:1.6}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .nav-menu{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      flex-wrap:wrap;
+    }
 
-.hero-right{display:grid;gap:14px}
-.hcard{
-  background:rgba(255,255,255,.92);backdrop-filter:blur(12px);
-  border:1px solid var(--line);border-radius:var(--radius-lg);
-  padding:26px;box-shadow:var(--shadow);
-}
-.hcard h3{font-size:1.18rem;font-weight:700;margin-bottom:10px}
-.hcard p{color:var(--muted);font-size:.94rem}
-.hours-list{display:grid;gap:9px;margin-top:14px}
-.hours-row{
-  display:flex;justify-content:space-between;align-items:baseline;gap:10px;
-  padding-bottom:9px;border-bottom:1px dashed rgba(15,21,16,.10);font-size:.92rem;
-}
-.hours-row:last-child{border-bottom:none;padding-bottom:0}
-.hours-row strong{font-weight:650;font-size:.88rem;text-align:right}
-.trust-4{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.trust-item{
-  background:linear-gradient(160deg,#fff 0%,#f0f4f1 100%);
-  border:1px solid var(--line);border-radius:18px;padding:18px;
-}
-.trust-item strong{display:block;font-size:.95rem;margin-bottom:5px}
-.trust-item span{font-size:.86rem;color:var(--muted);line-height:1.4}
+    .nav-menu a{
+      padding:10px 13px;
+      border-radius:999px;
+      font-size:.92rem;
+      font-weight:600;
+      transition:background .18s ease,color .18s ease;
+    }
 
-/* mobile priority strip */
-.m-strip{display:none}
+    .nav-menu a:hover{background:rgba(16,22,17,.06)}
 
-/* ── SECTION: WHY ── */
-.why-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:14px;align-items:stretch}
-.why-text{
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:var(--radius-xl);padding:36px;box-shadow:var(--shadow);
-  display:flex;flex-direction:column;gap:20px;justify-content:space-between;
-}
-.why-text h2{font-size:clamp(2.1rem,3.2vw,3.3rem);line-height:1.02;letter-spacing:-.05em}
-.why-text p{color:var(--muted);max-width:52ch}
-.why-points{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.why-point{
-  background:var(--surface-2);border:1px solid var(--line);
-  border-radius:var(--radius-md);padding:16px;
-}
-.why-point strong{display:block;margin-bottom:5px;font-size:.94rem}
-.why-point span{font-size:.86rem;color:var(--muted)}
-.why-image{
-  min-height:100%;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow);
-}
-.why-image img{width:100%;height:100%;object-fit:cover}
+    .nav-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      background:var(--brand);
+      color:#fff !important;
+      font-weight:700;
+      box-shadow:var(--shadow-sm);
+    }
 
-/* ── SECTION: SERVICES ── */
-.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.svc{
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:var(--radius-lg);padding:26px;box-shadow:var(--shadow);
-  display:flex;flex-direction:column;gap:12px;
-}
-.svc-num{
-  width:40px;height:40px;border-radius:13px;display:grid;place-items:center;
-  background:var(--accent);color:var(--brand);font-weight:800;font-size:.88rem;
-}
-.svc h3{font-size:1.1rem;font-weight:700}
-.svc p{font-size:.9rem;color:var(--muted);line-height:1.55}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      width:fit-content;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.18);
+      color:rgba(255,255,255,.94);
+      font-size:.8rem;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
 
-/* ── SECTION: EDITORIAL ── */
-.editorial-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:14px;align-items:stretch}
-.ed-image{
-  min-height:580px;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);
-}
-.ed-image img{width:100%;height:100%;object-fit:cover}
-.ed-copy{
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:var(--radius-xl);padding:36px;box-shadow:var(--shadow);
-  display:flex;flex-direction:column;justify-content:space-between;gap:20px;
-}
-.ed-copy h2{font-size:clamp(2rem,3vw,3rem);line-height:1.02;letter-spacing:-.05em;max-width:11ch}
-.ed-copy p{color:var(--muted);font-size:.94rem;max-width:52ch}
-.ed-points{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-.ed-point{
-  background:var(--surface-2);border:1px solid var(--line);
-  border-radius:var(--radius-md);padding:15px;
-}
-.ed-point strong{display:block;margin-bottom:4px;font-size:.92rem}
-.ed-point span{font-size:.84rem;color:var(--muted)}
+    .eyebrow-dark{
+      background:var(--accent);
+      border:1px solid rgba(16,22,17,.06);
+      color:var(--brand);
+    }
 
-/* ── SECTION: PHILOSOPHIE ── */
-.philo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.philo-card{
-  background:linear-gradient(140deg,var(--brand) 0%,var(--brand-mid) 100%);
-  color:#fff;border-radius:var(--radius-xl);padding:40px;box-shadow:var(--shadow-lg);
-}
-.philo-card blockquote{
-  font-size:clamp(1.3rem,2.2vw,1.75rem);line-height:1.45;
-  font-style:italic;margin-bottom:18px;color:#fff;
-}
-.philo-card p{color:rgba(255,255,255,.85);font-size:.95rem;max-width:50ch}
-.philo-pillars{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.pillar{
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:var(--radius-md);padding:20px;box-shadow:var(--shadow-sm);
-}
-.pillar strong{display:block;margin-bottom:6px}
-.pillar span{font-size:.88rem;color:var(--muted)}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:54px;
+      padding:14px 22px;
+      border-radius:18px;
+      font-weight:700;
+      font-size:.98rem;
+      transition:transform .18s ease,opacity .18s ease,box-shadow .18s ease,background .18s ease,color .18s ease;
+      cursor:pointer;
+      text-align:center;
+    }
 
-/* ── SECTION: TEAM ── */
-.team-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:14px;align-items:stretch}
-.team-box{
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow);
-}
-.team-box h2{font-size:clamp(1.9rem,2.8vw,2.9rem);line-height:1.02;letter-spacing:-.05em;margin-bottom:6px}
-.team-box p{color:var(--muted);font-size:.92rem}
-.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
-.person{
-  background:var(--surface-2);border:1px solid var(--line);
-  border-radius:16px;padding:16px;min-height:100px;
-}
-.person strong{display:block;font-size:.98rem;font-weight:700;margin-bottom:4px}
-.person span{font-size:.84rem;color:var(--muted)}
-.team-image{
-  min-height:100%;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);
-}
-.team-image img{width:100%;height:100%;object-fit:cover}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-white{
+      background:#fff;
+      color:var(--dark);
+      box-shadow:0 10px 26px rgba(0,0,0,.14);
+    }
+    .btn-ghost{
+      background:rgba(255,255,255,.10);
+      color:#fff;
+      border:1.5px solid rgba(255,255,255,.22);
+      backdrop-filter:blur(8px);
+    }
+    .btn-brand{
+      background:var(--brand);
+      color:#fff;
+      box-shadow:var(--shadow-sm);
+    }
+    .btn-outline{
+      background:transparent;
+      color:var(--brand);
+      border:1.5px solid var(--brand);
+    }
 
-/* ── SECTION: KONTAKT ── */
-.kontakt-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}
-.kontakt-box{
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow);
-}
-.kontakt-box h2{font-size:clamp(1.9rem,2.8vw,2.9rem);line-height:1.02;letter-spacing:-.05em;margin-bottom:10px}
-.kontakt-box p{color:var(--muted);font-size:.94rem;max-width:50ch}
-.clist{display:grid;gap:11px;margin-top:22px}
-.citem{
-  background:var(--surface-2);border:1px solid var(--line);
-  border-radius:14px;padding:14px 16px;
-}
-.citem small{display:block;font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
-.citem strong{font-size:.97rem}
-.kontakt-visual{
-  min-height:100%;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);
-  background:
-    linear-gradient(180deg,rgba(10,15,11,.14) 0%,rgba(10,15,11,.62) 55%,rgba(10,15,11,.88) 100%),
-    url("https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e66c22598320ab4979065284deeeb84643b35cf3.jpg") center/cover;
-  display:flex;align-items:flex-end;padding:32px;color:#fff;
-}
-.kontakt-visual p{font-size:1.05rem;color:rgba(255,255,255,.9);max-width:40ch;margin-bottom:18px}
+    .hero{padding:12px 0 24px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:14px;
+      align-items:stretch;
+    }
 
-/* ── MOBILE OVERRIDES ── */
-@media(max-width:1100px){
-  .hero-grid,.why-grid,.editorial-grid,.philo-grid,
-  .team-layout,.kontakt-grid{grid-template-columns:1fr !important}
-  .ed-points,.why-points,.philo-pillars,.team-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:700px){
-  .hero-visual{min-height:auto;padding:20px 16px 20px;border-radius:22px}
-  .hero-right{display:none}
-  .hero-copy h1{font-size:clamp(2.4rem,11vw,3.2rem);max-width:11ch}
-  .hero-copy p{font-size:.96rem;max-width:32ch}
-  .hero-btns{display:grid;grid-template-columns:1fr;gap:10px;margin-top:18px}
-  .btn{width:100%}
-  .m-strip{
-    display:grid;gap:10px;margin-top:10px;
-  }
-  .m-card{
-    background:var(--surface);border:1px solid var(--line);
-    border-radius:16px;padding:16px;box-shadow:var(--shadow-sm);
-  }
-  .m-card h3{font-size:1rem;font-weight:700;margin-bottom:8px}
-  .m-card p{font-size:.92rem;color:var(--muted)}
-  .m-hours{display:grid;gap:7px;margin-top:10px}
-  .m-hours div{
-    padding:10px 12px;background:var(--surface-2);
-    border:1px solid var(--line);border-radius:12px;font-size:.88rem;
-  }
-  .services-grid{grid-template-columns:1fr !important}
-  .ed-points,.why-points,.philo-pillars,.team-grid{grid-template-columns:1fr}
-  .why-text,.ed-copy,.team-box,.kontakt-box{padding:22px;border-radius:20px}
-  .why-image,.ed-image,.team-image,.kontakt-visual{min-height:280px;border-radius:18px}
-  .philo-card{padding:26px;border-radius:20px}
-}
+    .hero-visual{
+      min-height:760px;
+      border-radius:var(--radius-xl);
+      overflow:hidden;
+      position:relative;
+      box-shadow:var(--shadow-lg);
+      display:flex;
+      align-items:flex-end;
+      padding:54px;
+      background:
+        linear-gradient(180deg,rgba(10,15,11,.06) 0%,rgba(10,15,11,.28) 34%,rgba(10,15,11,.88) 100%),
+        url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1600&q=85&auto=format&fit=crop") center/cover;
+    }
 
+    .hero-copy{
+      color:#fff;
+      max-width:690px;
+      width:100%;
+    }
 
-/* ── STATUS BADGE ── */
-.status-bar{
-  display:inline-flex;align-items:center;gap:9px;
-  min-height:52px;padding:13px 22px;border-radius:999px;
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.20);
-  color:#fff;font-weight:700;font-size:.98rem;
-  backdrop-filter:blur(8px);
-}
-.status-dot{
-  width:10px;height:10px;border-radius:50%;flex-shrink:0;
-}
-.status-dot.open{background:#4ade80;box-shadow:0 0 0 3px rgba(74,222,128,.22),0 0 10px rgba(74,222,128,.55)}
-.status-dot.closing{background:#fb923c;box-shadow:0 0 0 3px rgba(251,146,60,.22),0 0 10px rgba(251,146,60,.55)}
-.status-dot.closed{background:#f87171;box-shadow:0 0 0 3px rgba(248,113,113,.22),0 0 10px rgba(248,113,113,.55)}
-/* ── ROUTE BTN ── */
-.route-btn{
-  display:inline-flex;align-items:center;gap:8px;
-  min-height:52px;padding:13px 22px;border-radius:999px;
-  background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.20);
-  color:#fff;font-weight:700;font-size:.98rem;
-  cursor:pointer;text-decoration:none;transition:.18s ease;
-  backdrop-filter:blur(8px);
-}
-.route-btn:hover{background:rgba(255,255,255,.22)}
-.route-btn svg{flex-shrink:0}
-/* Route btn in contact (dark bg) */
-.route-btn-dark{
-  display:inline-flex;align-items:center;gap:8px;
-  min-height:48px;padding:12px 20px;border-radius:999px;
-  background:var(--accent);border:1px solid rgba(30,51,40,.12);
-  color:var(--brand);font-weight:700;font-size:.92rem;
-  cursor:pointer;text-decoration:none;transition:.18s ease;
-  margin-top:12px;
-}
-.route-btn-dark:hover{background:var(--brand);color:#fff}
-@media(max-width:700px){
-  .status-bar,.route-btn{width:100%;justify-content:center}
-}
+    .hero-copy h1{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(3.3rem,5.5vw,6.1rem);
+      line-height:.95;
+      letter-spacing:-.05em;
+      margin:16px 0 16px;
+      max-width:9ch;
+      font-weight:600;
+    }
+
+    .hero-sub{
+      font-size:1.05rem;
+      color:rgba(255,255,255,.88);
+      line-height:1.68;
+      max-width:47ch;
+      margin-bottom:24px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:12px;
+      width:100%;
+    }
+
+    .hero-main-btns{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .hero-status-row{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .status-bar,
+    .route-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      min-height:48px;
+      padding:11px 18px;
+      border-radius:999px;
+      color:#fff;
+      font-weight:600;
+      font-size:.93rem;
+      backdrop-filter:blur(10px);
+    }
+
+    .status-bar{
+      background:rgba(255,255,255,.13);
+      border:1px solid rgba(255,255,255,.22);
+    }
+
+    .route-btn{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.22);
+      transition:background .18s ease,transform .18s ease;
+    }
+
+    .route-btn:hover{
+      background:rgba(255,255,255,.20);
+      transform:translateY(-1px);
+    }
+
+    .status-dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      flex-shrink:0;
+    }
+
+    .status-dot.open{
+      background:var(--ok);
+      box-shadow:0 0 0 3px rgba(74,222,128,.2),0 0 10px rgba(74,222,128,.45);
+    }
+    .status-dot.closing{
+      background:var(--warn);
+      box-shadow:0 0 0 3px rgba(251,146,60,.22),0 0 10px rgba(251,146,60,.45);
+    }
+    .status-dot.closed{
+      background:var(--bad);
+      box-shadow:0 0 0 3px rgba(248,113,113,.22),0 0 10px rgba(248,113,113,.45);
+    }
+
+    .hero-right{
+      display:grid;
+      gap:14px;
+    }
+
+    .hcard{
+      background:rgba(255,255,255,.94);
+      border:1px solid rgba(255,255,255,.75);
+      border-radius:var(--radius-lg);
+      padding:28px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(16px);
+    }
+
+    .hcard h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.24rem;
+      font-weight:500;
+      margin-bottom:10px;
+    }
+
+    .hcard p{
+      color:var(--muted);
+      font-size:.93rem;
+    }
+
+    .hours-list{
+      display:grid;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .hours-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:10px;
+      padding-bottom:10px;
+      border-bottom:1px dashed rgba(16,22,17,.08);
+      font-size:.92rem;
+    }
+
+    .hours-row:last-child{
+      border-bottom:none;
+      padding-bottom:0;
+    }
+
+    .hours-row strong{
+      font-size:.89rem;
+      text-align:right;
+      font-weight:700;
+    }
+
+    .trust-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .trust-item{
+      background:linear-gradient(160deg,#fff 0%,#f3f6f3 100%);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+      box-shadow:var(--shadow-sm);
+    }
+
+    .trust-item strong{
+      display:block;
+      margin-bottom:5px;
+      font-size:.95rem;
+    }
+
+    .trust-item span{
+      display:block;
+      font-size:.86rem;
+      line-height:1.45;
+      color:var(--muted);
+    }
+
+    .m-strip{display:none}
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+
+    .card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius-xl);
+      padding:38px;
+      box-shadow:var(--shadow);
+    }
+
+    .card h2{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2rem,3vw,3.1rem);
+      line-height:1.03;
+      letter-spacing:-.04em;
+      font-weight:500;
+    }
+
+    .card p{
+      color:var(--muted);
+      font-size:.95rem;
+      line-height:1.65;
+    }
+
+    .why-points,
+    .detail-points,
+    .pillars,
+    .review-grid,
+    .team-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .mini{
+      background:var(--surface-2);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+    }
+
+    .mini strong{
+      display:block;
+      margin-bottom:5px;
+      font-size:.95rem;
+    }
+
+    .mini span{
+      font-size:.87rem;
+      color:var(--muted);
+      line-height:1.45;
+    }
+
+    .image-box{
+      min-height:100%;
+      border-radius:var(--radius-xl);
+      overflow:hidden;
+      box-shadow:var(--shadow-lg);
+    }
+
+    .image-box img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .services-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+
+    .services-head h2{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2rem,3vw,3rem);
+      line-height:1.03;
+      letter-spacing:-.04em;
+      font-weight:500;
+    }
+
+    .services-head p{
+      color:var(--muted);
+      max-width:54ch;
+      font-size:.95rem;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+
+    .svc{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:26px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .svc-num{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:var(--accent);
+      color:var(--brand);
+      font-weight:800;
+      font-size:.88rem;
+    }
+
+    .svc h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.16rem;
+      font-weight:500;
+      letter-spacing:-.02em;
+    }
+
+    .svc p{
+      font-size:.9rem;
+      line-height:1.62;
+      color:var(--muted);
+    }
+
+    .philo-card{
+      background:linear-gradient(140deg,var(--brand) 0%,var(--brand-mid) 100%);
+      color:#fff;
+      border-radius:var(--radius-xl);
+      padding:40px;
+      box-shadow:var(--shadow-lg);
+    }
+
+    .philo-card blockquote{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.35rem,2.2vw,1.9rem);
+      line-height:1.5;
+      font-style:italic;
+      font-weight:500;
+      margin-bottom:16px;
+    }
+
+    .philo-card p{
+      color:rgba(255,255,255,.84);
+      font-size:.95rem;
+      max-width:50ch;
+    }
+
+    .review-shell{
+      background:linear-gradient(180deg,#f7faf7 0%,#edf3ee 100%);
+      border:1px solid rgba(16,22,17,.06);
+      border-radius:var(--radius-xl);
+      padding:34px;
+      box-shadow:var(--shadow);
+    }
+
+    .review-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+
+    .review-head h2{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.9rem,3vw,2.8rem);
+      line-height:1.04;
+      letter-spacing:-.04em;
+      font-weight:500;
+    }
+
+    .review-note{
+      color:var(--muted);
+      font-size:.88rem;
+      max-width:44ch;
+    }
+
+    .review{
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(16,22,17,.06);
+      border-radius:22px;
+      padding:22px;
+      box-shadow:var(--shadow-sm);
+    }
+
+    .stars{
+      color:var(--gold);
+      letter-spacing:.08em;
+      font-size:.95rem;
+      margin-bottom:10px;
+    }
+
+    .review p{
+      color:var(--text);
+      font-size:.94rem;
+      line-height:1.65;
+      margin-bottom:12px;
+    }
+
+    .review strong{
+      display:block;
+      font-size:.92rem;
+    }
+
+    .review span{
+      color:var(--muted);
+      font-size:.84rem;
+    }
+
+    .team-grid{margin-top:20px}
+
+    .person{
+      background:var(--surface-2);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+    }
+
+    .person-card{
+      display:grid;
+      grid-template-columns:72px 1fr;
+      gap:14px;
+      align-items:center;
+      min-height:auto;
+    }
+
+    .person-media{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .person-photo-placeholder{
+      width:72px;
+      aspect-ratio:1 / 1;
+      border-radius:18px;
+      border:1px solid rgba(31,52,41,.10);
+      background:linear-gradient(160deg, rgba(219,231,222,1) 0%, rgba(245,247,244,1) 100%);
+      color:var(--brand);
+      font-size:.78rem;
+      font-weight:700;
+      letter-spacing:.03em;
+      display:grid;
+      place-items:center;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.65);
+    }
+
+    .person-copy{
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .person-copy strong{
+      display:block;
+      font-size:1rem;
+      margin-bottom:4px;
+    }
+
+    .person-copy span{
+      display:block;
+      font-size:.85rem;
+      color:var(--muted);
+      line-height:1.45;
+    }
+
+    .clist{
+      display:grid;
+      gap:12px;
+      margin-top:22px;
+    }
+
+    .citem{
+      background:var(--surface-2);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px 18px;
+    }
+
+    .citem small{
+      display:block;
+      margin-bottom:4px;
+      font-size:.74rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--muted);
+    }
+
+    .citem strong{
+      font-size:.97rem;
+      word-break:break-word;
+    }
+
+    .route-btn-dark{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:52px;
+      padding:12px 22px;
+      margin-top:14px;
+      border-radius:16px;
+      background:var(--accent);
+      color:var(--brand);
+      border:1px solid rgba(31,52,41,.10);
+      font-weight:700;
+      font-size:.93rem;
+      transition:transform .18s ease,background .18s ease,color .18s ease;
+    }
+
+    .route-btn-dark:hover{
+      transform:translateY(-1px);
+      background:var(--brand);
+      color:#fff;
+    }
+
+    .kontakt-visual{
+      min-height:100%;
+      border-radius:var(--radius-xl);
+      overflow:hidden;
+      box-shadow:var(--shadow-lg);
+      display:flex;
+      align-items:flex-end;
+      padding:36px;
+      color:#fff;
+      background:
+        linear-gradient(180deg,rgba(10,15,11,.10) 0%,rgba(10,15,11,.58) 55%,rgba(10,15,11,.88) 100%),
+        url("https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=85&auto=format&fit=crop") center/cover;
+    }
+
+    .kontakt-visual-inner p{
+      font-family:'Playfair Display',serif;
+      font-size:1.12rem;
+      line-height:1.55;
+      color:rgba(255,255,255,.9);
+      max-width:34ch;
+      margin-bottom:18px;
+      font-style:italic;
+      font-weight:500;
+    }
+
+    footer{padding:18px 0 36px}
+
+    .footer-inner{
+      background:var(--dark);
+      color:#e8efe9;
+      border-radius:var(--radius-xl);
+      padding:34px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.3fr 1fr 1fr;
+      gap:24px;
+    }
+
+    .footer-inner h4{
+      font-size:.88rem;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      color:rgba(232,239,233,.52);
+      margin-bottom:12px;
+    }
+
+    .footer-inner p,
+    .footer-inner a,
+    .footer-inner span{
+      color:rgba(232,239,233,.76);
+      font-size:.9rem;
+    }
+
+    .footer-links{
+      display:grid;
+      gap:8px;
+    }
+
+    .footer-bottom{
+      margin-top:24px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.08);
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .footer-bottom span,
+    .footer-bottom a{
+      font-size:.82rem;
+      color:rgba(232,239,233,.42);
+    }
+
+    .float-cta{display:none}
+
+    @media(max-width:1100px){
+      .hero-grid,
+      .split{grid-template-columns:1fr !important}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+
+    @media(max-width:860px){
+      .menu-btn{display:inline-flex;align-items:center;justify-content:center}
+      .nav{
+        min-height:auto;
+        padding:12px 0;
+        flex-wrap:wrap;
+      }
+      .nav-menu{
+        display:none;
+        width:100%;
+        flex-direction:column;
+        align-items:stretch;
+        gap:8px;
+        padding:8px 0 2px;
+      }
+      .nav-menu.open{display:flex}
+      .nav-menu a,
+      .nav-cta{
+        min-height:52px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:12px 14px;
+        border-radius:14px;
+        background:#fff;
+        border:1px solid var(--line);
+      }
+      .nav-cta{
+        background:var(--brand);
+        border-color:transparent;
+      }
+    }
+
+    @media(max-width:700px){
+      :root{
+        --radius-xl:24px;
+        --radius-lg:18px;
+        --radius-md:14px;
+      }
+
+      body{
+        padding-bottom:96px;
+      }
+
+      .wrap{width:min(calc(100% - 16px),var(--container))}
+      section{padding:18px 0}
+
+      .hero{padding:8px 0 18px}
+
+      .hero-grid{
+        grid-template-columns:1fr !important;
+        gap:12px;
+      }
+
+      .hero-visual{
+        min-height:clamp(580px,82svh,700px);
+        padding:20px 18px 18px;
+        border-radius:24px;
+        background:
+          linear-gradient(180deg,rgba(10,15,11,.08) 0%,rgba(10,15,11,.26) 34%,rgba(10,15,11,.84) 100%),
+          url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1400&q=85&auto=format&fit=crop") center 35%/cover;
+      }
+
+      .hero-right{display:none}
+
+      .eyebrow{
+        padding:8px 12px;
+        font-size:.74rem;
+        line-height:1.2;
+      }
+
+      .hero-copy h1{
+        font-size:clamp(2.35rem,11vw,3.2rem);
+        line-height:.94;
+        max-width:8ch;
+        margin:12px 0;
+      }
+
+      .hero-sub{
+        font-size:.98rem;
+        line-height:1.55;
+        max-width:29ch;
+        margin-bottom:18px;
+      }
+
+      .hero-actions{
+        align-items:stretch;
+        gap:10px;
+      }
+
+      .hero-main-btns{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:10px;
+        width:100%;
+      }
+
+      .btn,
+      .route-btn-dark,
+      .float-cta a{
+        width:100%;
+        min-height:54px;
+        border-radius:16px;
+      }
+
+      .hero-status-row{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:8px;
+        width:100%;
+      }
+
+      .status-bar,
+      .route-btn{
+        min-height:48px;
+        width:100%;
+        padding:10px 14px;
+        border-radius:16px;
+        font-size:.88rem;
+        text-align:center;
+      }
+
+      .status-label{
+        display:block;
+        width:100%;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+      }
+
+      .m-strip{
+        display:grid;
+        gap:10px;
+        margin-top:12px;
+      }
+
+      .m-card{
+        background:#fff;
+        border:1px solid rgba(16,22,17,.06);
+        border-radius:18px;
+        padding:16px;
+        box-shadow:0 10px 26px rgba(10,15,11,.06);
+      }
+
+      .m-card h3{
+        font-family:'Playfair Display',serif;
+        font-size:1.02rem;
+        margin-bottom:8px;
+      }
+
+      .m-card p{
+        color:var(--muted);
+        font-size:.9rem;
+        line-height:1.55;
+      }
+
+      .m-hours{
+        display:grid;
+        gap:8px;
+        margin-top:10px;
+      }
+
+      .m-hours div{
+        min-height:44px;
+        display:flex;
+        align-items:center;
+        padding:10px 12px;
+        background:var(--surface-2);
+        border:1px solid var(--line);
+        border-radius:12px;
+        font-size:.88rem;
+      }
+
+      .card,
+      .review-shell,
+      .footer-inner{
+        padding:20px;
+        border-radius:20px;
+      }
+
+      .card h2,
+      .review-head h2{
+        font-size:clamp(1.72rem,8vw,2.25rem);
+        max-width:12ch;
+      }
+
+      .card p,
+      .services-head p{
+        font-size:.92rem;
+      }
+
+      .services-head{
+        margin-bottom:14px;
+      }
+
+      .services-grid,
+      .why-points,
+      .detail-points,
+      .pillars,
+      .review-grid,
+      .team-grid{
+        grid-template-columns:1fr !important;
+      }
+
+      .svc,
+      .mini,
+      .review,
+      .person,
+      .citem{
+        padding:16px;
+        border-radius:18px;
+      }
+
+      .person-card{
+        grid-template-columns:64px 1fr;
+        gap:12px;
+      }
+
+      .person-photo-placeholder{
+        width:64px;
+        border-radius:16px;
+        font-size:.74rem;
+      }
+
+      .image-box,
+      .kontakt-visual{
+        min-height:240px;
+        border-radius:18px;
+      }
+
+      .kontakt-visual{
+        padding:22px;
+      }
+
+      .kontakt-visual-inner p{
+        font-size:1rem;
+        margin-bottom:14px;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr !important;
+      }
+
+      .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:6px;
+      }
+
+      .float-cta{
+        display:block;
+        position:fixed;
+        left:12px;
+        right:12px;
+        bottom:calc(12px + env(safe-area-inset-bottom));
+        z-index:350;
+      }
+
+      .float-cta a{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:58px;
+        border-radius:18px;
+        background:var(--brand);
+        color:#fff;
+        font-weight:800;
+        box-shadow:0 14px 34px rgba(31,52,41,.30);
+        letter-spacing:.01em;
+      }
+    }
+
+    @media(max-width:420px){
+      .hero-status-row{grid-template-columns:1fr}
+      .status-label{white-space:normal}
+      .hero-sub{max-width:none}
+    }
   </style>
 </head>
 <body>
-
 
   <header>
     <div class="wrap nav">
@@ -412,12 +1109,15 @@ footer{padding:20px 0 36px}
           <span>Herbolzheim</span>
         </div>
       </a>
-      <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="navMenu">Menü</button>
+
+      <button class="menu-btn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMenu">Menü</button>
+
       <nav class="nav-menu" id="navMenu">
-        <a href="index.html#leistungen">Leistungen</a>
-        <a href="index.html#philosophie">Philosophie</a>
-        <a href="index.html#team">Team</a>
-        <a href="index.html#kontakt">Kontakt</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#philosophie">Philosophie</a>
+        <a href="#team">Team</a>
+        <a href="#bewertungen">Stimmen</a>
+        <a href="#kontakt">Kontakt</a>
         <a href="galerie.html">Galerie</a>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
@@ -426,68 +1126,86 @@ footer{padding:20px 0 36px}
     </div>
   </header>
 
-
   <main>
-
-    <!-- HERO -->
     <section class="hero">
       <div class="wrap">
         <div class="hero-grid">
-
           <div class="hero-visual">
             <div class="hero-copy">
-              <div class="hero-btns" style="margin-top:0;margin-bottom:14px;gap:10px">
-                <div class="status-bar">
-                  <span class="status-dot open"></span>
-                  <span class="status-label">Geöffnet</span>
+              <span class="eyebrow">Herbolzheim · Persönlich · Typgerecht</span>
+              <h1>Haare, die wirklich zu Ihnen passen.</h1>
+              <p class="hero-sub">Persönliche Beratung, präziser Schnitt und Farbe mit Gefühl. Friseur Creativ verbindet Erfahrung, Ruhe und ein Ergebnis, mit dem Sie sich gerne sehen lassen.</p>
+
+              <div class="hero-actions">
+                <div class="hero-main-btns">
+                  <a class="btn btn-white" href="tel:07643930693">Jetzt Termin anfragen</a>
+                  <a class="btn btn-ghost" href="#leistungen">Leistungen ansehen</a>
                 </div>
-                <a class="route-btn" href="https://www.google.com/maps/dir/?api=1&destination=Rheinhausenstra%C3%9Fe+32%2C+79336+Herbolzheim" target="_blank" rel="noopener">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-                  Route
-                </a>
-              </div>
-              <span class="eyebrow">Herbolzheim · Seit Jahren für Sie da</span>
-              <h1>Haare, die zu Ihnen passen.</h1>
-              <p>Persönliche Beratung, präziser Schnitt und Farbe mit Gefühl. Friseur Creativ nimmt sich Zeit für Sie – und ein Ergebnis, das sich richtig anfühlt.</p>
-              <div class="hero-btns">
-                <a class="btn btn-white" href="tel:07643930693">Jetzt Termin anfragen</a>
-                <a class="btn btn-ghost" href="#leistungen">Leistungen ansehen</a>
+
+                <div class="hero-status-row">
+                  <div class="status-bar">
+                    <span class="status-dot closed"></span>
+                    <span class="status-label">Status wird geladen</span>
+                  </div>
+
+                  <a class="route-btn" href="https://www.google.com/maps/dir/?api=1&destination=Rheinhausenstra%C3%9Fe+32%2C+79336+Herbolzheim" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                    </svg>
+                    Route
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="hero-right">
+          <aside class="hero-right">
             <div class="hcard">
               <h3>Öffnungszeiten</h3>
-              <p>Einfach vorbeikommen oder vorher anrufen.</p>
+              <p>Rufen Sie gerne an oder vereinbaren Sie Ihren Termin direkt telefonisch.</p>
               <div class="hours-list">
-                <div class="hours-row"><span>Di – Mi</span><strong>8:30 – 12:00 · 13:30 – 18:00</strong></div>
-                <div class="hours-row"><span>Do</span><strong>8:30 – 12:00 · 13:30 – 19:30</strong></div>
-                <div class="hours-row"><span>Fr</span><strong>8:30 – 12:00 · 13:30 – 19:30</strong></div>
-                <div class="hours-row"><span>Sa</span><strong>8:30 – 13:30</strong></div>
+                <div class="hours-row"><span>Dienstag</span><strong>8:30 – 12:00 · 13:30 – 18:00</strong></div>
+                <div class="hours-row"><span>Mittwoch</span><strong>8:30 – 12:00 · 13:30 – 18:00</strong></div>
+                <div class="hours-row"><span>Donnerstag</span><strong>8:30 – 12:00 · 13:30 – 19:30</strong></div>
+                <div class="hours-row"><span>Freitag</span><strong>8:30 – 12:00 · 13:30 – 19:30</strong></div>
+                <div class="hours-row"><span>Samstag</span><strong>8:30 – 13:30</strong></div>
               </div>
             </div>
-            <div class="trust-4">
-              <div class="trust-item"><strong>Individuell</strong><span>Ihre Persönlichkeit steht im Mittelpunkt.</span></div>
-              <div class="trust-item"><strong>Qualitativ</strong><span>Beste Produkte und präzises Handwerk.</span></div>
-              <div class="trust-item"><strong>Zuverlässig</strong><span>Flexibler Einsatz und echtes Vertrauen.</span></div>
-              <div class="trust-item"><strong>Persönlich</strong><span>Ein Besuch, der Eindruck hinterlässt.</span></div>
-            </div>
-          </div>
 
+            <div class="trust-grid">
+              <div class="trust-item">
+                <strong>Persönliche Beratung</strong>
+                <span>Ihr Typ, Ihr Alltag und Ihr Wunsch stehen im Mittelpunkt.</span>
+              </div>
+              <div class="trust-item">
+                <strong>Farbe mit Gespür</strong>
+                <span>Natürlich, modern oder markant – passend zu Ihrem Stil.</span>
+              </div>
+              <div class="trust-item">
+                <strong>Saubere Ergebnisse</strong>
+                <span>Präzise Schnitte und ein Finish, das lange gut aussieht.</span>
+              </div>
+              <div class="trust-item">
+                <strong>Angenehme Atmosphäre</strong>
+                <span>Ein Termin, bei dem man sich gut aufgehoben fühlt.</span>
+              </div>
+            </div>
+          </aside>
         </div>
 
-        <!-- Mobile strip (hidden on desktop) -->
         <div class="m-strip">
           <div class="m-card">
             <h3>Öffnungszeiten</h3>
-            <p>Immer gut erreichbar – einfach anrufen.</p>
+            <p>Direkt erreichbar und unkompliziert telefonisch buchbar.</p>
             <div class="m-hours">
-              <div>Di – Mi · 8:30–12:00 · 13:30–18:00</div>
-              <div>Do – Fr · 8:30–12:00 · 13:30–19:30</div>
-              <div>Sa · 8:30–13:30</div>
+              <div>Dienstag · 8:30–12:00 · 13:30–18:00</div>
+              <div>Mittwoch · 8:30–12:00 · 13:30–18:00</div>
+              <div>Donnerstag · 8:30–12:00 · 13:30–19:30</div>
+              <div>Freitag · 8:30–12:00 · 13:30–19:30</div>
+              <div>Samstag · 8:30–13:30</div>
             </div>
           </div>
+
           <div class="m-card">
             <h3>Kontakt</h3>
             <p><a href="tel:07643930693">07643 930 693</a> · <a href="mailto:info@friseur-creativ.com">info@friseur-creativ.com</a><br>Rheinhausenstraße 32, 79336 Herbolzheim</p>
@@ -496,127 +1214,246 @@ footer{padding:20px 0 36px}
       </div>
     </section>
 
-    <!-- WHY -->
     <section>
-      <div class="wrap why-grid">
-        <div class="why-text">
-          <div>
-            <span class="eyebrow-dark eyebrow" style="color:var(--brand);background:var(--accent);border-color:rgba(15,21,16,.08)">Warum Friseur Creativ?</span>
-            <h2 style="margin-top:16px">Mehr als nur ein guter Haarschnitt.</h2>
-            <p style="margin-top:12px">Individualität, hochwertige Produkte, Flexibilität und ein persönliches Erlebnis – das ist der Anspruch, mit dem das Team in Herbolzheim täglich arbeitet.</p>
-          </div>
-          <div class="why-points">
-            <div class="why-point"><strong>Persönliche Beratung</strong><span>Ihr Typ, Ihr Alltag, Ihr Ergebnis.</span></div>
-            <div class="why-point"><strong>Moderne Techniken</strong><span>Farbe, Schnitt und Styling auf Niveau.</span></div>
-            <div class="why-point"><strong>Echtes Vertrauen</strong><span>Zuverlässigkeit und Einsatz als Grundlage.</span></div>
-            <div class="why-point"><strong>Wohlfühlen</strong><span>Ein Termin, der sich lohnt.</span></div>
+      <div class="wrap split">
+        <div class="card">
+          <span class="eyebrow eyebrow-dark">Warum Friseur Creativ?</span>
+          <h2 style="margin-top:16px;">Mehr als nur ein guter Haarschnitt.</h2>
+          <p style="margin-top:14px;">Ein Friseurbesuch soll nicht nur gut aussehen, sondern sich auch richtig anfühlen. Deshalb stehen bei Friseur Creativ persönliche Beratung, saubere Umsetzung und ein Ergebnis im Fokus, das zu Ihrem Alltag passt.</p>
+
+          <div class="why-points" style="margin-top:22px;">
+            <div class="mini">
+              <strong>Typgerechte Beratung</strong>
+              <span>Kein Standard, sondern ein Look, der zu Ihnen passt.</span>
+            </div>
+            <div class="mini">
+              <strong>Moderne Techniken</strong>
+              <span>Schnitt, Farbe und Styling mit Gefühl für Details.</span>
+            </div>
+            <div class="mini">
+              <strong>Verlässliche Qualität</strong>
+              <span>Ruhige Arbeit, klare Ergebnisse und hochwertige Produkte.</span>
+            </div>
+            <div class="mini">
+              <strong>Wohlfühl-Erlebnis</strong>
+              <span>Ein Besuch, den man gern wiederholt.</span>
+            </div>
           </div>
         </div>
-        <div class="why-image">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/062fd8fb18ae14bd802291d381ed248f2b9bc934.jpg" alt="Friseurin bei der Arbeit">
+
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=85&auto=format&fit=crop" alt="Friseurin bei der Arbeit im Salon" loading="lazy">
         </div>
       </div>
     </section>
 
-    <!-- LEISTUNGEN -->
     <section id="leistungen">
       <div class="wrap">
-        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:18px;flex-wrap:wrap">
-          <h2 style="font-size:clamp(2rem,3vw,3rem);letter-spacing:-.05em;line-height:1.02">Leistungen.</h2>
-          <p style="color:var(--muted);max-width:52ch;font-size:.94rem">Von Schnitt über Farbe bis Make-up – alles aus einer Hand, mit Gefühl für Details.</p>
+        <div class="services-head">
+          <h2>Leistungen.</h2>
+          <p>Von Schnitt über Farbe bis Styling und Pflege – alles mit einem klaren Anspruch an Qualität, Beratung und ein stimmiges Endergebnis.</p>
         </div>
+
         <div class="services-grid">
           <article class="svc">
             <div class="svc-num">01</div>
             <h3>Schnitt</h3>
-            <p>Damen-, Herren- und Kinderhaarschnitte mit typgerechter Beratung, klarer Form und präzisem Finish.</p>
+            <p>Damen-, Herren- und Kinderhaarschnitte mit sauberer Form, typgerechter Beratung und einem Ergebnis, das auch nach Tagen noch gut sitzt.</p>
           </article>
+
           <article class="svc">
             <div class="svc-num">02</div>
             <h3>Farbe &amp; Strähnen</h3>
-            <p>Unterschiedliche Farb- und Strähntechniken – von natürlicher Tiefe bis zu bewusst neuen Akzenten.</p>
+            <p>Natürliche Nuancen, frische Akzente oder sichtbare Veränderung – passend zu Teint, Stil und gewünschter Wirkung.</p>
           </article>
+
           <article class="svc">
             <div class="svc-num">03</div>
             <h3>Styling</h3>
-            <p>Verschiedene Stylings und Hochsteckfrisuren für Alltag, besondere Anlässe und Events.</p>
+            <p>Föhnstyling, festliche Frisuren und Hochsteckfrisuren für Alltag, Feier und besondere Momente mit einem sicheren Finish.</p>
           </article>
+
           <article class="svc">
             <div class="svc-num">04</div>
             <h3>Beauty &amp; Pflege</h3>
-            <p>Dauerwellen, intensive Haarreparaturen, Augenbrauen- &amp; Wimpernfarbe sowie Make-up.</p>
+            <p>Haarpflege, Haaraufbau, Augenbrauen- und Wimpernfarbe sowie ergänzende Beauty-Leistungen für ein rundes Gesamtbild.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- EDITORIAL: FARBE -->
     <section>
-      <div class="wrap editorial-grid">
-        <div class="ed-image">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a5a81410108467eea03c4c3e5f6810196bc49c23.jpg" alt="Farbbehandlung im Salon">
+      <div class="wrap split">
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=1200&q=85&auto=format&fit=crop" alt="Farbbehandlung im Friseursalon" loading="lazy">
         </div>
-        <div class="ed-copy">
-          <div>
-            <span class="eyebrow-dark eyebrow" style="color:var(--brand);background:var(--accent);border-color:rgba(15,21,16,.08)">Farbe &amp; Handwerk</span>
-            <h2 style="margin-top:14px">Farbe braucht Gespür – nicht nur Technik.</h2>
-            <p style="margin-top:12px">Ein gutes Farbergebnis entsteht durch Typ-Analyse, gute Produkte und eine ruhige Hand. Friseur Creativ arbeitet mit dem Anspruch, dass das Beste gerade gut genug ist.</p>
-          </div>
-          <div class="ed-points">
-            <div class="ed-point"><strong>Typgerecht</strong><span>Farbe passend zu Ihrem Look und Alltag.</span></div>
-            <div class="ed-point"><strong>Qualitätsprodukte</strong><span>Nur das Beste für Ihr Haar.</span></div>
-            <div class="ed-point"><strong>Strähnen</strong><span>Natürliche Tiefe oder satte Akzente.</span></div>
-            <div class="ed-point"><strong>Reparatur</strong><span>Intensive Pflege und Haarstruktur-Aufbau.</span></div>
+
+        <div class="card">
+          <span class="eyebrow eyebrow-dark">Farbe &amp; Handwerk</span>
+          <h2 style="margin-top:16px;">Farbe braucht Gespür – nicht nur Technik.</h2>
+          <p style="margin-top:14px;">Ein gutes Farbergebnis entsteht nicht zufällig. Es braucht Erfahrung, hochwertige Produkte und ein Gefühl dafür, was zu Gesicht, Haarstruktur und Persönlichkeit passt.</p>
+
+          <div class="detail-points" style="margin-top:22px;">
+            <div class="mini">
+              <strong>Typgerecht</strong>
+              <span>Farbe passend zu Look, Wirkung und Alltag.</span>
+            </div>
+            <div class="mini">
+              <strong>Hochwertige Produkte</strong>
+              <span>Pflege und Farbe mit Anspruch an Haar und Ergebnis.</span>
+            </div>
+            <div class="mini">
+              <strong>Natürlich oder bewusst neu</strong>
+              <span>Von weichen Nuancen bis zu klaren Akzenten.</span>
+            </div>
+            <div class="mini">
+              <strong>Pflege inklusive Denken</strong>
+              <span>Auch die Haarstruktur wird mitgedacht, nicht nur die Optik.</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PHILOSOPHIE -->
     <section id="philosophie">
-      <div class="wrap philo-grid">
+      <div class="wrap split">
         <div class="philo-card">
-          <blockquote>„Die Individualität des Menschen steht im Mittelpunkt."</blockquote>
-          <p>Das Team möchte Sie so begeistern, dass Sie sich schon heute auf Ihren nächsten Besuch freuen – mit besten Produkten, positivem Einsatz, Zuverlässigkeit und hohem Können.</p>
+          <blockquote>„Die Individualität des Menschen steht im Mittelpunkt.“</blockquote>
+          <p>Friseur Creativ möchte nicht einfach nur bedienen, sondern begeistern – mit guten Produkten, ehrlicher Beratung, sorgfältiger Arbeit und einem Ergebnis, auf das man sich beim nächsten Termin wieder freut.</p>
         </div>
-        <div class="philo-pillars">
-          <div class="pillar"><strong>Individuell</strong><span>Ihr Typ, Ihr Stil, Ihre Wirkung.</span></div>
-          <div class="pillar"><strong>Hochwertig</strong><span>Gute Mittel und echtes Handwerk.</span></div>
-          <div class="pillar"><strong>Zuverlässig</strong><span>Vertrauen durch Einsatz und Konstanz.</span></div>
-          <div class="pillar"><strong>Persönlich</strong><span>Ein Erlebnis, kein bloßer Termin.</span></div>
-        </div>
-      </div>
-    </section>
 
-    <!-- TEAM -->
-    <section id="team">
-      <div class="wrap team-layout">
-        <div class="team-box">
-          <h2>Das Team.</h2>
-          <p>Claudia, Daniela, Hanna, Manuela, Saskia, Pilar und Nicole – ein eingespieltes Team mit gemeinsamer Leidenschaft für gute Arbeit.</p>
-          <div class="team-grid">
-            <div class="person"><strong>Claudia</strong><span>Gespür für passende Veränderungen.</span></div>
-            <div class="person"><strong>Daniela</strong><span>Präzision und ein klarer Blick für Ergebnisse.</span></div>
-            <div class="person"><strong>Hanna</strong><span>Moderne Ideen mit sauberer Umsetzung.</span></div>
-            <div class="person"><strong>Manuela</strong><span>Erfahrung und ruhige Beratung.</span></div>
-            <div class="person"><strong>Saskia</strong><span>Kreative Akzente, harmonisches Finish.</span></div>
-            <div class="person"><strong>Pilar</strong><span>Sorgfalt und persönlicher Umgang.</span></div>
-            <div class="person"><strong>Nicole</strong><span>Verlässliche Betreuung, klarer Stil.</span></div>
-            <div class="person"><strong>Tobias Beck</strong><span>Inhaber · Friseur Creativ Herbolzheim.</span></div>
+        <div class="card">
+          <span class="eyebrow eyebrow-dark">Die Werte</span>
+          <h2 style="margin-top:16px;">Worauf es im Salon wirklich ankommt.</h2>
+          <div class="pillars" style="margin-top:22px;">
+            <div class="mini">
+              <strong>Individuell</strong>
+              <span>Ihr Stil, Ihr Typ und Ihre Wirkung stehen im Vordergrund.</span>
+            </div>
+            <div class="mini">
+              <strong>Hochwertig</strong>
+              <span>Produkte und Handwerk sollen überzeugen – nicht nur versprechen.</span>
+            </div>
+            <div class="mini">
+              <strong>Zuverlässig</strong>
+              <span>Ein Termin soll angenehm, planbar und professionell sein.</span>
+            </div>
+            <div class="mini">
+              <strong>Persönlich</strong>
+              <span>Menschen kommen nicht nur wegen Haaren, sondern wegen Vertrauen.</span>
+            </div>
           </div>
         </div>
-        <div class="team-image">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/062fd8fb18ae14bd802291d381ed248f2b9bc934.jpg" alt="Stylistin im Salon">
+      </div>
+    </section>
+
+    <section id="bewertungen">
+      <div class="wrap">
+        <div class="review-shell">
+          <div class="review-head">
+            <div>
+              <span class="eyebrow eyebrow-dark">Stimmen aus dem Salon</span>
+              <h2 style="margin-top:14px;">Was Kundinnen und Kunden besonders schätzen.</h2>
+            </div>
+            <p class="review-note">Vor dem Livegang sollten hier nur echte freigegebene Kundenstimmen stehen.</p>
+          </div>
+
+          <div class="review-grid">
+            <article class="review">
+              <div class="stars">★★★★★</div>
+              <p>„Hier kann später eine echte Bewertung zur Beratung, Atmosphäre oder zum Ergebnis stehen.“</p>
+              <strong>Name ergänzen</strong>
+              <span>echte Kundin / echter Kunde</span>
+            </article>
+
+            <article class="review">
+              <div class="stars">★★★★★</div>
+              <p>„Hier kann später eine authentische Aussage zu Farbe, Schnitt oder Service eingefügt werden.“</p>
+              <strong>Name ergänzen</strong>
+              <span>echte Kundin / echter Kunde</span>
+            </article>
+
+            <article class="review">
+              <div class="stars">★★★★★</div>
+              <p>„Hier kann später eine kurze glaubwürdige Stimme zu Freundlichkeit oder Verlässlichkeit stehen.“</p>
+              <strong>Name ergänzen</strong>
+              <span>echte Kundin / echter Kunde</span>
+            </article>
+
+            <article class="review">
+              <div class="stars">★★★★★</div>
+              <p>„Hier kann später eine echte Empfehlung eingefügt werden, warum jemand gerne wiederkommt.“</p>
+              <strong>Name ergänzen</strong>
+              <span>echte Kundin / echter Kunde</span>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- KONTAKT -->
+    <section id="team">
+      <div class="wrap split">
+        <div class="card">
+          <span class="eyebrow eyebrow-dark">Das Team</span>
+          <h2 style="margin-top:16px;">Menschen mit Gespür für gute Ergebnisse.</h2>
+          <p style="margin-top:14px;">Claudia, Daniela, Hanna, Manuela, Saskia, Pilar und Nicole stehen für Erfahrung, Genauigkeit und einen persönlichen Umgang. Dazu kommt mit Tobias Beck als Inhaber ein klarer Anspruch an Qualität und Atmosphäre.</p>
+
+          <div class="team-grid">
+            <div class="person person-card">
+              <div class="person-media"><div class="person-photo-placeholder" aria-hidden="true">Foto</div></div>
+              <div class="person-copy"><strong>Claudia</strong><span>Gespür für passende Veränderungen.</span></div>
+            </div>
+
+            <div class="person person-card">
+              <div class="person-media"><div class="person-photo-placeholder" aria-hidden="true">Foto</div></div>
+              <div class="person-copy"><strong>Daniela</strong><span>Präzision und ein klarer Blick für Ergebnisse.</span></div>
+            </div>
+
+            <div class="person person-card">
+              <div class="person-media"><div class="person-photo-placeholder" aria-hidden="true">Foto</div></div>
+              <div class="person-copy"><strong>Hanna</strong><span>Moderne Ideen mit sauberer Umsetzung.</span></div>
+            </div>
+
+            <div class="person person-card">
+              <div class="person-media"><div class="person-photo-placeholder" aria-hidden="true">Foto</div></div>
+              <div class="person-copy"><strong>Manuela</strong><span>Erfahrung und ruhige Beratung.</span></div>
+            </div>
+
+            <div class="person person-card">
+              <div class="person-media"><div class="person-photo-placeholder" aria-hidden="true">Foto</div></div>
+              <div class="person-copy"><strong>Saskia</strong><span>Kreative Akzente mit harmonischem Finish.</span></div>
+            </div>
+
+            <div class="person person-card">
+              <div class="person-media"><div class="person-photo-placeholder" aria-hidden="true">Foto</div></div>
+              <div class="person-copy"><strong>Pilar</strong><span>Sorgfalt und persönlicher Umgang.</span></div>
+            </div>
+
+            <div class="person person-card">
+              <div class="person-media"><div class="person-photo-placeholder" aria-hidden="true">Foto</div></div>
+              <div class="person-copy"><strong>Nicole</strong><span>Verlässliche Betreuung und klarer Stil.</span></div>
+            </div>
+
+            <div class="person person-card">
+              <div class="person-media"><div class="person-photo-placeholder" aria-hidden="true">Foto</div></div>
+              <div class="person-copy"><strong>Tobias Beck</strong><span>Inhaber · Friseur Creativ Herbolzheim.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=85&auto=format&fit=crop" alt="Stylistin im Salon" loading="lazy">
+        </div>
+      </div>
+    </section>
+
     <section id="kontakt">
-      <div class="wrap kontakt-grid">
-        <div class="kontakt-box">
-          <h2>Kontakt &amp; Termin.</h2>
-          <p>Rufen Sie einfach an oder schreiben Sie uns – wir freuen uns auf Sie.</p>
+      <div class="wrap split">
+        <div class="card">
+          <span class="eyebrow eyebrow-dark">Kontakt &amp; Termin</span>
+          <h2 style="margin-top:16px;">Ein Anruf genügt.</h2>
+          <p style="margin-top:14px;">Ob Schnitt, Farbe oder Styling – telefonisch lässt sich Ihr Termin schnell und unkompliziert abstimmen.</p>
+
           <div class="clist">
             <div class="citem"><small>Salon</small><strong>Friseur Creativ</strong></div>
             <div class="citem"><small>Adresse</small><strong>Rheinhausenstraße 32, 79336 Herbolzheim</strong></div>
@@ -624,22 +1461,24 @@ footer{padding:20px 0 36px}
             <div class="citem"><small>E-Mail</small><strong><a href="mailto:info@friseur-creativ.com">info@friseur-creativ.com</a></strong></div>
             <div class="citem"><small>Inhaber</small><strong>Tobias Beck</strong></div>
           </div>
-              <a class="route-btn-dark" href="https://www.google.com/maps/dir/?api=1&destination=Rheinhausenstra%C3%9Fe+32%2C+79336+Herbolzheim" target="_blank" rel="noopener">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-                Route in Google Maps öffnen
-              </a>
+
+          <a class="route-btn-dark" href="https://www.google.com/maps/dir/?api=1&destination=Rheinhausenstra%C3%9Fe+32%2C+79336+Herbolzheim" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+            </svg>
+            Route in Google Maps öffnen
+          </a>
         </div>
+
         <div class="kontakt-visual">
-          <div>
+          <div class="kontakt-visual-inner">
             <p>Persönlich. Hochwertig. Auf Sie zugeschnitten.</p>
             <a class="btn btn-white" href="tel:07643930693">Jetzt anrufen</a>
           </div>
         </div>
       </div>
     </section>
-
   </main>
-
 
   <footer>
     <div class="wrap">
@@ -647,8 +1486,9 @@ footer{padding:20px 0 36px}
         <div class="footer-grid">
           <div>
             <h4>Friseur Creativ</h4>
-            <p>Persönliche Beratung, moderne Schnitte und Farbtechniken – ein Salon, auf dessen Besuch man sich freut.</p>
+            <p>Persönliche Beratung, moderne Schnitte und Farbtechniken – ein Salon, auf dessen Besuch man sich gerne freut.</p>
           </div>
+
           <div>
             <h4>Kontakt</h4>
             <div class="footer-links">
@@ -657,6 +1497,7 @@ footer{padding:20px 0 36px}
               <span>Rheinhausenstraße 32<br>79336 Herbolzheim</span>
             </div>
           </div>
+
           <div>
             <h4>Links</h4>
             <div class="footer-links">
@@ -666,6 +1507,7 @@ footer{padding:20px 0 36px}
             </div>
           </div>
         </div>
+
         <div class="footer-bottom">
           <span>© 2026 Friseur Creativ · Inh. Tobias Beck</span>
           <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
@@ -674,20 +1516,23 @@ footer{padding:20px 0 36px}
     </div>
   </footer>
 
-  <div class="float-cta"><a href="tel:07643930693">📞 Jetzt Termin anfragen</a></div>
-
+  <div class="float-cta">
+    <a href="tel:07643930693">📞 Jetzt Termin anfragen</a>
+  </div>
 
   <script>
     (function(){
       const btn = document.querySelector('.menu-btn');
       const menu = document.getElementById('navMenu');
-      if(!btn||!menu) return;
-      btn.addEventListener('click',()=>{
+      if(!btn || !menu) return;
+
+      btn.addEventListener('click', () => {
         const open = menu.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open);
+        btn.setAttribute('aria-expanded', String(open));
       });
-      menu.querySelectorAll('a').forEach(a=>{
-        a.addEventListener('click',()=>{
+
+      menu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
           menu.classList.remove('open');
           btn.setAttribute('aria-expanded','false');
         });
@@ -695,69 +1540,87 @@ footer{padding:20px 0 36px}
     })();
   </script>
 
+  <script>
+    (function(){
+      const schedule = {
+        2:[[8,30],[12,0],[13,30],[18,0]],
+        3:[[8,30],[12,0],[13,30],[18,0]],
+        4:[[8,30],[12,0],[13,30],[19,30]],
+        5:[[8,30],[12,0],[13,30],[19,30]],
+        6:[[8,30],[13,30]]
+      };
 
-<script>
-(function(){
-  const schedule={
-    2:[[8,30],[12,0],[13,30],[18,0]],
-    3:[[8,30],[12,0],[13,30],[18,0]],
-    4:[[8,30],[12,0],[13,30],[19,30]],
-    5:[[8,30],[12,0],[13,30],[19,30]],
-    6:[[8,30],[13,30]]
-  };
-  const dayNames=['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
-  function fmt(h,m){return h+':'+(m===0?'00':String(m).padStart(2,'0'))+' Uhr';}
-  function nextOpen(fromDay,fromCur){
-    for(let d=1;d<8;d++){
-      const day=(fromDay+d)%7;
-      const slots=schedule[day];
-      if(!slots)continue;
-      const o=slots[0][0]*60+slots[0][1];
-      const when=d===1?'morgen':dayNames[day];
-      return when+' ab '+fmt(slots[0][0],slots[0][1]);
-    }
-    return null;
-  }
-  function getStatus(){
-    const now=new Date();
-    const day=now.getDay();
-    const cur=now.getHours()*60+now.getMinutes();
-    const SOON=60;
-    const slots=schedule[day];
-    if(!slots){
-      const n=nextOpen(day,cur);
-      return {state:'closed',label:n?'Geschlossen · öffnet '+n:'Aktuell geschlossen'};
-    }
-    for(let i=0;i<slots.length;i+=2){
-      const o=slots[i][0]*60+slots[i][1];
-      const c=slots[i+1][0]*60+slots[i+1][1];
-      if(cur>=o&&cur<c){
-        const rem=c-cur;
-        if(rem<=SOON) return {state:'closing',label:'Schließt bald · '+fmt(slots[i+1][0],slots[i+1][1])};
-        return {state:'open',label:'Geöffnet · bis '+fmt(slots[i+1][0],slots[i+1][1])};
+      const dayNames = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+
+      function fmt(h,m){
+        return h + ':' + String(m).padStart(2,'0') + ' Uhr';
       }
-      if(i+2<slots.length){
-        const no=slots[i+2][0]*60+slots[i+2][1];
-        if(cur>=c&&cur<no){
-          const rem=no-cur;
-          if(rem<=90) return {state:'closing',label:'Öffnet wieder '+fmt(slots[i+2][0],slots[i+2][1])};
-          return {state:'closed',label:'Mittagspause · öffnet '+fmt(slots[i+2][0],slots[i+2][1])};
+
+      function nextOpen(fromDay){
+        for(let d = 1; d < 8; d++){
+          const day = (fromDay + d) % 7;
+          const slots = schedule[day];
+          if(!slots) continue;
+          const when = d === 1 ? 'morgen' : dayNames[day];
+          return when + ' ab ' + fmt(slots[0][0], slots[0][1]);
         }
+        return null;
       }
-    }
-    const n=nextOpen(day,cur);
-    return {state:'closed',label:n?'Geschlossen · öffnet '+n:'Aktuell geschlossen'};
-  }
-  function render(){
-    const{state,label}=getStatus();
-    document.querySelectorAll('.status-dot').forEach(d=>{d.className='status-dot '+state;});
-    document.querySelectorAll('.status-label').forEach(el=>{el.textContent=label;});
-  }
-  render();
-  setInterval(render,30000);
-})();
-</script>
-<div class="float-cta"><a href="tel:07643930693">📞 Jetzt Termin anfragen</a></div>
 
+      function getStatus(){
+        const now = new Date();
+        const day = now.getDay();
+        const cur = now.getHours() * 60 + now.getMinutes();
+        const SOON_CLOSE = 60;
+        const SOON_OPEN = 90;
+        const slots = schedule[day];
+
+        if(!slots){
+          const n = nextOpen(day);
+          return {state:'closed', label:n ? 'Geschlossen · öffnet ' + n : 'Aktuell geschlossen'};
+        }
+
+        for(let i = 0; i < slots.length; i += 2){
+          const open = slots[i][0] * 60 + slots[i][1];
+          const close = slots[i+1][0] * 60 + slots[i+1][1];
+
+          if(cur >= open && cur < close){
+            const rem = close - cur;
+            if(rem <= SOON_CLOSE){
+              return {state:'closing', label:'Schließt bald · bis ' + fmt(slots[i+1][0], slots[i+1][1])};
+            }
+            return {state:'open', label:'Geöffnet · bis ' + fmt(slots[i+1][0], slots[i+1][1])};
+          }
+
+          if(i + 2 < slots.length){
+            const nextSlot = slots[i+2][0] * 60 + slots[i+2][1];
+            if(cur >= close && cur < nextSlot){
+              const rem = nextSlot - cur;
+              if(rem <= SOON_OPEN){
+                return {state:'closing', label:'Öffnet wieder ' + fmt(slots[i+2][0], slots[i+2][1])};
+              }
+              return {state:'closed', label:'Mittagspause · öffnet ' + fmt(slots[i+2][0], slots[i+2][1])};
+            }
+          }
+        }
+
+        const n = nextOpen(day);
+        return {state:'closed', label:n ? 'Geschlossen · öffnet ' + n : 'Aktuell geschlossen'};
+      }
+
+      function render(){
+        const {state, label} = getStatus();
+        document.querySelectorAll('.status-dot').forEach(dot => {
+          dot.className = 'status-dot ' + state;
+        });
+        document.querySelectorAll('.status-label').forEach(el => {
+          el.textContent = label;
+        });
+      }
+
+      render();
+      setInterval(render, 30000);
+    })();
+  </script>
 </body>
 </html>
