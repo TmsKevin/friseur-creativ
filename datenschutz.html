@@ -1,121 +1,41 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Datenschutz | Friseur Creativ Herbolzheim</title>
   <style>
 
 :root{
-  --bg:#f4f6f2;
-  --surface:#ffffff;
-  --surface-2:#f0f3ee;
-  --text:#0f1510;
-  --muted:#5e6b62;
-  --line:rgba(15,21,16,.07);
-  --brand:#1e3328;
-  --brand-mid:#3a5c4a;
-  --brand-light:#6a8c78;
-  --accent:#d6e4d9;
-  --dark:#0a0f0b;
-  --gold:#b8a96a;
+  --bg:#f4f6f2;--surface:#ffffff;--surface-2:#f0f3ee;--text:#0f1510;--muted:#5e6b62;
+  --line:rgba(15,21,16,.07);--brand:#1e3328;--brand-mid:#3a5c4a;--brand-light:#6a8c78;
+  --accent:#d6e4d9;--dark:#0a0f0b;
   --shadow-sm:0 4px 18px rgba(10,15,11,.06);
   --shadow:0 20px 60px rgba(10,15,11,.10);
   --shadow-lg:0 40px 100px rgba(10,15,11,.14);
-  --radius-xl:32px;
-  --radius-lg:24px;
-  --radius-md:16px;
-  --container:1480px;
+  --radius-xl:32px;--radius-lg:24px;--radius-md:16px;--container:1480px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-body{
-  font-family:'Inter',system-ui,-apple-system,sans-serif;
-  color:var(--text);
-  background:#f4f6f2;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:#f4f6f2;line-height:1.6;-webkit-font-smoothing:antialiased;}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%;height:auto}
-
-/* ── LAYOUT ── */
 .wrap{width:min(calc(100% - 32px),var(--container));margin:0 auto}
-
-/* ── HEADER / NAV ── */
-header{
-  position:sticky;top:0;z-index:200;
-  background:rgba(244,246,242,.90);
-  backdrop-filter:blur(20px) saturate(1.6);
-  border-bottom:1px solid var(--line);
-}
-.nav{
-  height:80px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-}
+header{position:sticky;top:0;z-index:200;background:rgba(244,246,242,.90);backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid var(--line);}
+.nav{height:80px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
-.brand-mark{
-  width:44px;height:44px;border-radius:14px;
-  background:linear-gradient(145deg,var(--brand),var(--brand-mid));
-  display:grid;place-items:center;
-  color:#fff;font-weight:800;font-size:.88rem;letter-spacing:.06em;
-  box-shadow:var(--shadow-sm);
-}
+.brand-mark{width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,var(--brand),var(--brand-mid));display:grid;place-items:center;color:#fff;font-weight:800;font-size:.88rem;letter-spacing:.06em;box-shadow:var(--shadow-sm);}
 .brand-text strong{display:block;font-size:.98rem;font-weight:700;letter-spacing:.02em}
 .brand-text span{display:block;font-size:.8rem;color:var(--muted);margin-top:1px}
 .nav-menu{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.nav-menu a{
-  padding:8px 13px;border-radius:999px;font-size:.9rem;font-weight:550;color:var(--text);
-  transition:background .15s,color .15s;
-}
+.nav-menu a{padding:8px 13px;border-radius:999px;font-size:.9rem;font-weight:550;color:var(--text);transition:background .15s;}
 .nav-menu a:hover{background:rgba(15,21,16,.06)}
-.nav-cta{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:11px 18px;border-radius:999px;
-  background:var(--brand);color:#fff !important;font-weight:700;font-size:.9rem;
-  box-shadow:var(--shadow-sm);
-  transition:opacity .15s;
-}
+.nav-cta{display:inline-flex;align-items:center;justify-content:center;padding:11px 18px;border-radius:999px;background:var(--brand);color:#fff !important;font-weight:700;font-size:.9rem;box-shadow:var(--shadow-sm);transition:opacity .15s;}
 .nav-cta:hover{opacity:.88}
-.menu-btn{
-  display:none;border:1px solid var(--line);background:var(--surface);
-  border-radius:12px;padding:10px 13px;font:700 .88rem/1 inherit;color:var(--text);cursor:pointer;
-}
-
-/* ── FLOATING CTA (mobile) ── */
-.float-cta{display:none}
-
-/* ── BUTTONS ── */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-height:52px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:.98rem;
-  transition:.2s ease;
-}
-.btn-white{background:#fff;color:var(--dark)}
-.btn-ghost{background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.18)}
-.btn-brand{background:var(--brand);color:#fff;box-shadow:var(--shadow-sm)}
-.btn-outline{background:transparent;color:var(--brand);border:1.5px solid var(--brand)}
-
-/* ── EYEBROW ── */
-.eyebrow{
-  display:inline-flex;align-items:center;gap:7px;
-  padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:600;letter-spacing:.04em;
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.9);
-}
-.eyebrow-dark{
-  background:var(--accent);border:1px solid rgba(15,21,16,.09);
-  color:var(--brand);
-}
-
-/* ── SECTION ── */
+.menu-btn{display:none;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:10px 13px;font:700 .88rem/1 inherit;color:var(--text);cursor:pointer;}
 section{padding:40px 0}
-
-/* ── FOOTER ── */
 footer{padding:20px 0 36px}
-.footer-inner{
-  background:var(--dark);color:#e8f0ea;
-  border-radius:var(--radius-xl);padding:32px;
-}
+.footer-inner{background:var(--dark);color:#e8f0ea;border-radius:var(--radius-xl);padding:32px;}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:20px}
 .footer-inner h4{font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px;color:rgba(232,240,234,.6)}
 .footer-inner p,.footer-inner a,.footer-inner span{color:rgba(232,240,234,.75);font-size:.9rem}
@@ -123,24 +43,16 @@ footer{padding:20px 0 36px}
 .footer-links{display:grid;gap:7px}
 .footer-bottom{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .footer-bottom span,.footer-bottom a{font-size:.82rem;color:rgba(232,240,234,.45)}
-
-/* ── RESPONSIVE ── */
-@media(max-width:1100px){
-  .services-grid{grid-template-columns:repeat(2,1fr) !important}
-  .footer-grid{grid-template-columns:1fr 1fr !important}
-}
+.float-cta{display:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:.98rem;transition:.2s ease;}
+.btn-white{background:#fff;color:var(--dark)}
+@media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr !important}}
 @media(max-width:860px){
   .menu-btn{display:inline-flex}
   .nav{height:auto;padding:13px 0;flex-wrap:wrap}
-  .nav-menu{
-    display:none;width:100%;flex-direction:column;align-items:stretch;gap:6px;
-    padding:8px 0 4px;
-  }
+  .nav-menu{display:none;width:100%;flex-direction:column;align-items:stretch;gap:6px;padding:8px 0 4px;}
   .nav-menu.open{display:flex}
-  .nav-menu a{
-    padding:12px 14px;background:var(--surface);border:1px solid var(--line);
-    border-radius:13px;font-size:.98rem;
-  }
+  .nav-menu a{padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:13px;font-size:.98rem;}
   .nav-cta{width:100%;justify-content:center}
 }
 @media(max-width:700px){
@@ -148,56 +60,31 @@ footer{padding:20px 0 36px}
   section{padding:22px 0}
   .footer-grid{grid-template-columns:1fr !important}
   .footer-inner{border-radius:20px;padding:22px}
-  .float-cta{
-    display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:300;
-  }
-  .float-cta a{
-    display:flex;align-items:center;justify-content:center;
-    min-height:56px;border-radius:999px;background:var(--brand);color:#fff;font-weight:800;
-    box-shadow:0 14px 30px rgba(30,51,40,.30);
-  }
+  .float-cta{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:300;}
+  .float-cta a{display:flex;align-items:center;justify-content:center;min-height:56px;border-radius:999px;background:var(--brand);color:#fff;font-weight:800;box-shadow:0 14px 30px rgba(30,51,40,.30);}
   body{padding-bottom:80px}
 }
 
 
-.legal-hero{
-  min-height:340px;border-radius:var(--radius-xl);overflow:hidden;
-  background:linear-gradient(140deg,var(--brand) 0%,var(--brand-mid) 100%);
-  display:flex;align-items:flex-end;padding:44px;
-  box-shadow:var(--shadow-lg);margin-bottom:28px;
-}
-.legal-hero h1{
-  color:#fff;font-size:clamp(2.4rem,5vw,4.5rem);letter-spacing:-.055em;line-height:.97;
-}
-.legal-hero p{color:rgba(255,255,255,.80);margin-top:10px;font-size:.98rem;max-width:52ch}
-.legal-body{
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:var(--radius-xl);padding:40px;box-shadow:var(--shadow);
-  max-width:860px;
-}
-.legal-body h2{font-size:1.35rem;margin:28px 0 8px;letter-spacing:-.02em}
+.legal-hero{min-height:320px;border-radius:var(--radius-xl);overflow:hidden;background:linear-gradient(140deg,var(--brand) 0%,var(--brand-mid) 100%);display:flex;align-items:flex-end;padding:44px;box-shadow:var(--shadow-lg);margin-bottom:24px;}
+.legal-hero h1{color:#fff;font-size:clamp(2.4rem,5vw,4.5rem);letter-spacing:-.055em;line-height:.97;}
+.legal-hero p{color:rgba(255,255,255,.78);margin-top:10px;font-size:.96rem;max-width:52ch}
+.legal-body{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-xl);padding:40px;box-shadow:var(--shadow);max-width:860px;}
+.legal-body h2{font-size:1.3rem;margin:26px 0 8px;letter-spacing:-.02em}
 .legal-body h2:first-child{margin-top:0}
-.legal-body p,.legal-body li{color:var(--muted);font-size:.95rem;line-height:1.65;margin-bottom:10px}
+.legal-body p,.legal-body li{color:var(--muted);font-size:.94rem;line-height:1.65;margin-bottom:10px}
 .legal-body ul{padding-left:18px;margin-bottom:10px}
 .legal-body a{color:var(--brand);text-decoration:underline}
-@media(max-width:700px){
-  .legal-hero{min-height:220px;padding:22px 18px;border-radius:20px}
-  .legal-body{padding:22px;border-radius:20px}
-}
+@media(max-width:700px){.legal-hero{min-height:210px;padding:22px 18px;border-radius:20px}.legal-body{padding:22px;border-radius:20px}}
 
   </style>
 </head>
 <body>
-
-
   <header>
     <div class="wrap nav">
       <a class="brand" href="index.html">
         <div class="brand-mark">FC</div>
-        <div class="brand-text">
-          <strong>Friseur Creativ</strong>
-          <span>Herbolzheim</span>
-        </div>
+        <div class="brand-text"><strong>Friseur Creativ</strong><span>Herbolzheim</span></div>
       </a>
       <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="navMenu">Menü</button>
       <nav class="nav-menu" id="navMenu">
@@ -212,107 +99,51 @@ footer{padding:20px 0 36px}
       </nav>
     </div>
   </header>
-
   <main>
     <section>
       <div class="wrap">
-        <div class="legal-hero">
-          <div>
-            <h1>Datenschutz.</h1>
-            <p>Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO.</p>
-          </div>
-        </div>
+        <div class="legal-hero"><div><h1>Datenschutz.</h1><p>Informationen zur Verarbeitung Ihrer Daten gemäß DSGVO.</p></div></div>
         <div class="legal-body">
           <h2>Verantwortlicher</h2>
           <p><strong>Friseur Creativ</strong><br>Inh. Tobias Beck<br>Rheinhausenstraße 32<br>79336 Herbolzheim<br>E-Mail: <a href="mailto:info@friseur-creativ.com">info@friseur-creativ.com</a><br>Tel.: <a href="tel:07643930693">07643 930 693</a></p>
-
           <h2>Allgemeine Hinweise</h2>
-          <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Ihre personenbezogenen Daten werden vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung behandelt. Die Nutzung dieser Website ist in der Regel ohne Angabe personenbezogener Daten möglich.</p>
-
-          <h2>Erhebung von Daten beim Seitenbesuch</h2>
-          <p>Beim Aufrufen dieser Website werden durch den Webserver automatisch folgende Daten temporär in einem Logfile gespeichert:</p>
-          <ul>
-            <li>IP-Adresse des anfragenden Rechners</li>
-            <li>Datum und Uhrzeit des Zugriffs</li>
-            <li>Bezeichnung der abgerufenen Datei</li>
-            <li>Referrer-URL (zuvor besuchte Seite)</li>
-            <li>Verwendeter Browser und Betriebssystem</li>
-          </ul>
-
-          <h2>Zwecke der Verarbeitung</h2>
-          <p>Die Verarbeitung der Daten erfolgt zur Gewährleistung eines reibungslosen Verbindungsaufbaus, zur Auswertung der Systemsicherheit sowie zu weiteren administrativen Zwecken.</p>
-
+          <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Ihre Daten werden vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften behandelt. Die Nutzung dieser Website ist in der Regel ohne Angabe personenbezogener Daten möglich.</p>
+          <h2>Erhobene Daten beim Seitenbesuch</h2>
+          <ul><li>IP-Adresse des anfragenden Rechners</li><li>Datum und Uhrzeit des Zugriffs</li><li>Bezeichnung der abgerufenen Datei</li><li>Referrer-URL (zuvor besuchte Seite)</li><li>Verwendeter Browser und Betriebssystem</li></ul>
+          <h2>Zweck der Verarbeitung</h2>
+          <p>Gewährleistung eines reibungslosen Verbindungsaufbaus, Auswertung der Systemsicherheit sowie weitere administrative Zwecke.</p>
           <h2>Weitergabe von Daten</h2>
-          <p>Eine Übermittlung Ihrer persönlichen Daten an Dritte findet grundsätzlich nicht statt, außer in den gesetzlich zulässigen und notwendigen Fällen.</p>
-
+          <p>Eine Übermittlung Ihrer Daten an Dritte findet grundsätzlich nicht statt, außer in den gesetzlich zulässigen Fällen.</p>
           <h2>Ihre Rechte</h2>
-          <p>Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie Datenübertragbarkeit. Außerdem steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
-
-          <h2>Widerspruchsrecht</h2>
-          <p>Sofern personenbezogene Daten auf Grundlage berechtigter Interessen gemäß Art. 6 Abs. 1 S. 1 lit. f DSGVO verarbeitet werden, haben Sie das Recht, gemäß Art. 21 DSGVO Widerspruch gegen die Verarbeitung einzulegen.</p>
-
+          <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie ein Beschwerderecht bei der zuständigen Aufsichtsbehörde.</p>
           <h2>Datensicherheit</h2>
-          <p>Diese Website nutzt aus Sicherheitsgründen das SSL-Verfahren (HTTPS). Darüber hinaus setzen wir technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten gegen zufällige oder vorsätzliche Manipulation, teilweisen oder vollständigen Verlust oder den unbefugten Zugriff Dritter zu schützen.</p>
-
-          <h2>Stand</h2>
-          <p>Diese Datenschutzerklärung hat den Stand Juni 2026.</p>
+          <p>Diese Website nutzt das SSL-Verfahren (HTTPS). Zudem setzen wir technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten zu schützen.</p>
+          <h2>Stand</h2><p>Juni 2026</p>
         </div>
       </div>
     </section>
   </main>
-
-
   <footer>
     <div class="wrap">
       <div class="footer-inner">
         <div class="footer-grid">
-          <div>
-            <h4>Friseur Creativ</h4>
-            <p>Persönliche Beratung, moderne Schnitte und Farbtechniken – ein Salon, auf dessen Besuch man sich freut.</p>
-          </div>
-          <div>
-            <h4>Kontakt</h4>
-            <div class="footer-links">
-              <a href="tel:07643930693">07643 930 693</a>
-              <a href="mailto:info@friseur-creativ.com">info@friseur-creativ.com</a>
-              <span>Rheinhausenstraße 32<br>79336 Herbolzheim</span>
-            </div>
-          </div>
-          <div>
-            <h4>Links</h4>
-            <div class="footer-links">
-              <a href="galerie.html">Galerie</a>
-              <a href="impressum.html">Impressum</a>
-              <a href="datenschutz.html">Datenschutz</a>
-            </div>
-          </div>
+          <div><h4>Friseur Creativ</h4><p>Persönliche Beratung, moderne Schnitte und Farbtechniken – ein Salon, auf dessen Besuch man sich freut.</p></div>
+          <div><h4>Kontakt</h4><div class="footer-links"><a href="tel:07643930693">07643 930 693</a><a href="mailto:info@friseur-creativ.com">info@friseur-creativ.com</a><span>Rheinhausenstraße 32<br>79336 Herbolzheim</span></div></div>
+          <div><h4>Links</h4><div class="footer-links"><a href="galerie.html">Galerie</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div>
         </div>
-        <div class="footer-bottom">
-          <span>© 2026 Friseur Creativ · Inh. Tobias Beck</span>
-          <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
-        </div>
+        <div class="footer-bottom"><span>© 2026 Friseur Creativ · Inh. Tobias Beck</span><span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span></div>
       </div>
     </div>
   </footer>
-
-
+  <div class="float-cta"><a href="tel:07643930693">📞 Jetzt Termin anfragen</a></div>
   <script>
-    (function(){
-      const btn = document.querySelector('.menu-btn');
-      const menu = document.getElementById('navMenu');
-      if(!btn||!menu) return;
-      btn.addEventListener('click',()=>{
-        const open = menu.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open);
-      });
-      menu.querySelectorAll('a').forEach(a=>{
-        a.addEventListener('click',()=>{
-          menu.classList.remove('open');
-          btn.setAttribute('aria-expanded','false');
-        });
-      });
-    })();
+  (function(){
+    const btn=document.querySelector('.menu-btn');
+    const menu=document.getElementById('navMenu');
+    if(!btn||!menu)return;
+    btn.addEventListener('click',()=>{const o=menu.classList.toggle('open');btn.setAttribute('aria-expanded',o);});
+    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');btn.setAttribute('aria-expanded','false');}));
+  })();
   </script>
-
 </body>
 </html>

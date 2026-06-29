@@ -359,6 +359,45 @@ footer{padding:20px 0 36px}
   .philo-card{padding:26px;border-radius:20px}
 }
 
+
+/* ── STATUS BADGE ── */
+.status-bar{
+  display:inline-flex;align-items:center;gap:9px;
+  min-height:52px;padding:13px 22px;border-radius:999px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.20);
+  color:#fff;font-weight:700;font-size:.98rem;
+  backdrop-filter:blur(8px);
+}
+.status-dot{
+  width:10px;height:10px;border-radius:50%;flex-shrink:0;
+}
+.status-dot.open{background:#4ade80;box-shadow:0 0 0 3px rgba(74,222,128,.22),0 0 10px rgba(74,222,128,.55)}
+.status-dot.closing{background:#fb923c;box-shadow:0 0 0 3px rgba(251,146,60,.22),0 0 10px rgba(251,146,60,.55)}
+.status-dot.closed{background:#f87171;box-shadow:0 0 0 3px rgba(248,113,113,.22),0 0 10px rgba(248,113,113,.55)}
+/* ── ROUTE BTN ── */
+.route-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  min-height:52px;padding:13px 22px;border-radius:999px;
+  background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.20);
+  color:#fff;font-weight:700;font-size:.98rem;
+  cursor:pointer;text-decoration:none;transition:.18s ease;
+  backdrop-filter:blur(8px);
+}
+.route-btn:hover{background:rgba(255,255,255,.22)}
+.route-btn svg{flex-shrink:0}
+/* Route btn in contact (dark bg) */
+.route-btn-dark{
+  display:inline-flex;align-items:center;gap:8px;
+  min-height:48px;padding:12px 20px;border-radius:999px;
+  background:var(--accent);border:1px solid rgba(30,51,40,.12);
+  color:var(--brand);font-weight:700;font-size:.92rem;
+  cursor:pointer;text-decoration:none;transition:.18s ease;
+  margin-top:12px;
+}
+.route-btn-dark:hover{background:var(--brand);color:#fff}
+@media(max-width:700px){
+  .status-bar,.route-btn{width:100%;justify-content:center}
+}
   </style>
 </head>
 <body>
@@ -397,6 +436,16 @@ footer{padding:20px 0 36px}
 
           <div class="hero-visual">
             <div class="hero-copy">
+              <div class="hero-btns" style="margin-top:0;margin-bottom:14px;gap:10px">
+                <div class="status-bar">
+                  <span class="status-dot open"></span>
+                  <span class="status-label">Geöffnet</span>
+                </div>
+                <a class="route-btn" href="https://www.google.com/maps/dir/?api=1&destination=Rheinhausenstra%C3%9Fe+32%2C+79336+Herbolzheim" target="_blank" rel="noopener">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                  Route
+                </a>
+              </div>
               <span class="eyebrow">Herbolzheim · Seit Jahren für Sie da</span>
               <h1>Haare, die zu Ihnen passen.</h1>
               <p>Persönliche Beratung, präziser Schnitt und Farbe mit Gefühl. Friseur Creativ nimmt sich Zeit für Sie – und ein Ergebnis, das sich richtig anfühlt.</p>
@@ -575,6 +624,10 @@ footer{padding:20px 0 36px}
             <div class="citem"><small>E-Mail</small><strong><a href="mailto:info@friseur-creativ.com">info@friseur-creativ.com</a></strong></div>
             <div class="citem"><small>Inhaber</small><strong>Tobias Beck</strong></div>
           </div>
+              <a class="route-btn-dark" href="https://www.google.com/maps/dir/?api=1&destination=Rheinhausenstra%C3%9Fe+32%2C+79336+Herbolzheim" target="_blank" rel="noopener">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                Route in Google Maps öffnen
+              </a>
         </div>
         <div class="kontakt-visual">
           <div>
@@ -641,6 +694,70 @@ footer{padding:20px 0 36px}
       });
     })();
   </script>
+
+
+<script>
+(function(){
+  const schedule={
+    2:[[8,30],[12,0],[13,30],[18,0]],
+    3:[[8,30],[12,0],[13,30],[18,0]],
+    4:[[8,30],[12,0],[13,30],[19,30]],
+    5:[[8,30],[12,0],[13,30],[19,30]],
+    6:[[8,30],[13,30]]
+  };
+  const dayNames=['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+  function fmt(h,m){return h+':'+(m===0?'00':String(m).padStart(2,'0'))+' Uhr';}
+  function nextOpen(fromDay,fromCur){
+    for(let d=1;d<8;d++){
+      const day=(fromDay+d)%7;
+      const slots=schedule[day];
+      if(!slots)continue;
+      const o=slots[0][0]*60+slots[0][1];
+      const when=d===1?'morgen':dayNames[day];
+      return when+' ab '+fmt(slots[0][0],slots[0][1]);
+    }
+    return null;
+  }
+  function getStatus(){
+    const now=new Date();
+    const day=now.getDay();
+    const cur=now.getHours()*60+now.getMinutes();
+    const SOON=60;
+    const slots=schedule[day];
+    if(!slots){
+      const n=nextOpen(day,cur);
+      return {state:'closed',label:n?'Geschlossen · öffnet '+n:'Aktuell geschlossen'};
+    }
+    for(let i=0;i<slots.length;i+=2){
+      const o=slots[i][0]*60+slots[i][1];
+      const c=slots[i+1][0]*60+slots[i+1][1];
+      if(cur>=o&&cur<c){
+        const rem=c-cur;
+        if(rem<=SOON) return {state:'closing',label:'Schließt bald · '+fmt(slots[i+1][0],slots[i+1][1])};
+        return {state:'open',label:'Geöffnet · bis '+fmt(slots[i+1][0],slots[i+1][1])};
+      }
+      if(i+2<slots.length){
+        const no=slots[i+2][0]*60+slots[i+2][1];
+        if(cur>=c&&cur<no){
+          const rem=no-cur;
+          if(rem<=90) return {state:'closing',label:'Öffnet wieder '+fmt(slots[i+2][0],slots[i+2][1])};
+          return {state:'closed',label:'Mittagspause · öffnet '+fmt(slots[i+2][0],slots[i+2][1])};
+        }
+      }
+    }
+    const n=nextOpen(day,cur);
+    return {state:'closed',label:n?'Geschlossen · öffnet '+n:'Aktuell geschlossen'};
+  }
+  function render(){
+    const{state,label}=getStatus();
+    document.querySelectorAll('.status-dot').forEach(d=>{d.className='status-dot '+state;});
+    document.querySelectorAll('.status-label').forEach(el=>{el.textContent=label;});
+  }
+  render();
+  setInterval(render,30000);
+})();
+</script>
+<div class="float-cta"><a href="tel:07643930693">📞 Jetzt Termin anfragen</a></div>
 
 </body>
 </html>
