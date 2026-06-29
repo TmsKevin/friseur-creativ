@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Friseur Creativ Herbolzheim | Premium Salon Website</title>
+  <meta name="description" content="Friseur Creativ in Herbolzheim – persönliche Beratung, moderne Schnitte, Farbtechniken, Styling und ein hochwertiges Salon-Erlebnis." />
+  <style>
+    :root{
+      --bg:#f3f5f4; --bg-soft:#eef2ef; --surface:#ffffff; --surface-2:#f7faf8; --text:#121815; --muted:#67746d;
+      --line:rgba(18,24,21,.08); --brand:#264437; --brand-2:#6f8f7b; --accent:#dfe9e3; --accent-2:#c8d8cd;
+      --dark:#0e1411; --shadow:0 24px 70px rgba(14,20,17,.09); --radius-xl:30px; --radius-lg:24px; --radius-md:18px;
+      --container:1500px; --container-tight:1320px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--text);background:radial-gradient(circle at top left, rgba(200,216,205,.28), transparent 24%),linear-gradient(180deg,#f7faf7 0%,#eef3ef 100%);line-height:1.58}
+    a{text-decoration:none;color:inherit} img{max-width:100%;display:block}
+    .container{width:min(calc(100% - 24px), var(--container));margin:0 auto}
+    .container-tight{width:min(calc(100% - 24px), var(--container-tight));margin:0 auto}
+
+    header{position:sticky;top:0;z-index:100;background:rgba(247,250,247,.86);backdrop-filter:blur(16px);border-bottom:1px solid rgba(18,24,21,.05)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+    .brand-badge{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;font-weight:800;letter-spacing:.05em;box-shadow:var(--shadow)}
+    .brand-copy strong{display:block;font-size:1rem;letter-spacing:.03em}
+    .brand-copy span{display:block;color:var(--muted);font-size:.86rem}
+    .menu-toggle{display:none;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:14px;padding:10px 12px;font:inherit;font-weight:600}
+    .nav-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+    .nav-links a{color:#27312b;font-weight:550}
+    .nav-cta{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;white-space:nowrap}
+
+    .hero{padding:14px 0 18px}
+    .hero-shell{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:stretch}
+    .hero-main{min-height:720px;border-radius:var(--radius-xl);overflow:hidden;position:relative;box-shadow:var(--shadow);background:linear-gradient(180deg, rgba(14,20,17,.20) 0%, rgba(14,20,17,.52) 48%, rgba(14,20,17,.82) 100%),url("https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fcf2005fd4d94ec3b3e8d4ee5c7b5d23e0b5201b.jpg") center/cover;display:flex;align-items:flex-end;padding:54px}
+    .hero-content{max-width:720px;color:#fff}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.16);margin-bottom:18px;font-size:.9rem}
+    h1{margin:0 0 14px;font-size:clamp(2.7rem,5vw,5.5rem);line-height:1.01;letter-spacing:-.05em;max-width:10ch}
+    .hero-lead{margin:0;max-width:60ch;font-size:1.05rem;color:rgba(255,255,255,.92)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 20px;border-radius:999px;font-weight:700}
+    .btn-primary{background:#fff;color:var(--dark)}
+    .btn-secondary{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.18)}
+
+    .hero-side{display:grid;gap:16px;min-height:100%}
+    .card{background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px;font-size:1.22rem;line-height:1.1}
+    .card p{margin:0;color:var(--muted)}
+    .hours{display:grid;gap:10px;margin-top:16px}
+    .hours-row{display:flex;justify-content:space-between;gap:14px;padding-bottom:10px;border-bottom:1px dashed rgba(18,24,21,.12)}
+    .hours-row:last-child{border-bottom:0;padding-bottom:0}
+    .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .trust{background:linear-gradient(180deg,#fff 0%, #f4f8f5 100%);border:1px solid var(--line);border-radius:20px;padding:18px}
+    .trust strong{display:block;margin-bottom:7px}
+    .mobile-priority{display:none}
+
+    section{padding:26px 0}
+    .section-head{display:grid;grid-template-columns:1fr .92fr;gap:18px;align-items:end;margin-bottom:16px}
+    .section-head h2{margin:0;font-size:clamp(1.95rem,3vw,3.1rem);line-height:1.04;letter-spacing:-.04em}
+    .section-head p{margin:0;color:var(--muted)}
+    .services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .service{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:var(--shadow)}
+    .service-no{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:var(--accent);color:var(--brand);font-weight:800;margin-bottom:14px}
+    .service h3{margin:0 0 7px;font-size:1.12rem}
+    .service p{margin:0;color:var(--muted)}
+
+    .about-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:16px;align-items:stretch}
+    .about-image{min-height:520px;border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+    .about-image img{width:100%;height:100%;object-fit:cover}
+    .about-copy{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:var(--shadow)}
+    .about-copy h2{margin:0 0 12px;font-size:clamp(1.9rem,3vw,3rem);line-height:1.04;letter-spacing:-.04em}
+    .about-copy p{margin:0 0 14px;color:var(--muted)}
+    .about-points{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+    .about-point{background:var(--surface-2);border:1px solid var(--line);border-radius:18px;padding:16px}
+    .about-point strong{display:block;margin-bottom:6px}
+
+    .philo-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:16px}
+    .philo-main{background:linear-gradient(135deg,var(--brand),#5e7f6d);color:#fff;border-radius:28px;padding:32px;box-shadow:var(--shadow)}
+    .philo-main .quote{margin:0 0 16px;font-size:1.28rem;line-height:1.55}
+    .philo-main p{margin:0;color:rgba(255,255,255,.9)}
+    .pillars{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .pillar{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+    .pillar strong{display:block;margin-bottom:7px}
+
+    .team-section{display:grid;grid-template-columns:1.04fr .96fr;gap:16px}
+    .team{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .person{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:20px;min-height:194px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between}
+    .avatar{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;background:var(--accent);color:var(--brand);font-weight:800}
+    .person h3{margin:14px 0 7px;font-size:1.08rem}
+    .person p{margin:0;color:var(--muted)}
+    .team-visual{min-height:100%;border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+    .team-visual img{width:100%;height:100%;object-fit:cover}
+
+    .contact-grid{display:grid;grid-template-columns:1fr .96fr;gap:16px}
+    .contact-card{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:24px;box-shadow:var(--shadow)}
+    .contact-list{display:grid;gap:12px;margin-top:18px}
+    .contact-item{background:var(--surface-2);border:1px solid var(--line);border-radius:18px;padding:15px 16px}
+    .contact-item small{display:block;color:var(--muted);margin-bottom:4px}
+    .contact-visual{min-height:100%;border-radius:24px;padding:28px;background:linear-gradient(180deg, rgba(18,24,21,.18) 0%, rgba(18,24,21,.60) 55%, rgba(18,24,21,.84) 100%),url("https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e66c22598320ab4979065284deeeb84643b35cf3.jpg") center/cover;color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+    .contact-visual p{margin:0;max-width:42ch;color:rgba(255,255,255,.9)}
+
+    footer{padding:18px 0 30px}
+    .footer-box{background:var(--dark);color:#eef5ef;border-radius:26px;padding:24px}
+    .footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px}
+    .footer-box h3,.footer-box h4{margin:0 0 10px}
+    .footer-box p,.footer-box a,.footer-box span{color:rgba(238,245,239,.82)}
+    .footer-list{display:grid;gap:8px}
+    .floating-call{display:none}
+
+    @media (max-width:1180px){
+      .hero-shell,.section-head,.about-grid,.philo-grid,.team-section,.contact-grid,.footer-grid{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media (max-width:860px){
+      .menu-toggle{display:inline-flex}
+      .nav{min-height:auto;padding:14px 0;flex-wrap:wrap}
+      .nav-links{width:100%;display:none;flex-direction:column;align-items:stretch;gap:10px;padding:8px 0 2px}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+      .nav-cta{width:100%}
+    }
+
+    @media (max-width:760px){
+      .container,.container-tight{width:min(calc(100% - 14px), var(--container))}
+      .hero{padding:8px 0 12px}
+      .hero-shell{gap:10px}
+      .hero-main{min-height:auto;padding:20px 16px 18px;align-items:flex-end;border-radius:24px}
+      .hero-side{display:none}
+      h1{font-size:clamp(2.15rem, 10vw, 2.95rem);max-width:11ch;margin-bottom:10px}
+      .hero-lead{font-size:.98rem;max-width:34ch}
+      .hero-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:18px}
+      .btn{width:100%}
+      .mobile-priority{display:grid;gap:10px;margin-top:10px}
+      .mobile-info{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+      .mobile-info h3{margin:0 0 8px;font-size:1.04rem}
+      .mobile-info p{margin:0;color:var(--muted);font-size:.96rem}
+      .mobile-hours{display:grid;gap:8px;margin-top:12px}
+      .mobile-hours div{padding:11px 12px;background:var(--surface-2);border:1px solid var(--line);border-radius:14px}
+      section{padding:18px 0}
+      .section-head{gap:8px;margin-bottom:12px}
+      .section-head p{font-size:.96rem}
+      .services,.about-points,.pillars,.team,.footer-grid{grid-template-columns:1fr}
+      .service,.person,.contact-card,.philo-main,.footer-box,.about-copy{border-radius:18px}
+      .about-image{min-height:300px;border-radius:20px}
+      .contact-visual{min-height:290px;padding:20px 16px}
+      .floating-call{position:fixed;left:12px;right:12px;bottom:12px;z-index:120;display:block}
+      .floating-call a{display:flex;align-items:center;justify-content:center;min-height:56px;border-radius:999px;background:var(--brand);color:#fff;font-weight:800;box-shadow:0 16px 34px rgba(38,68,55,.28)}
+      body{padding-bottom:82px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <div class="brand-badge">FC</div>
+        <div class="brand-copy">
+          <strong>Friseur Creativ</strong>
+          <span>Herbolzheim</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">Menü</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#philosophie">Philosophie</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="#team">Team</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a class="nav-cta" href="tel:07643930693">Termin anfragen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-shell">
+        <div class="hero-main">
+          <div class="hero-content">
+            <div class="eyebrow">Persönliche Beratung · Moderne Looks · Wohlfühlen</div>
+            <h1>Schönes Haar. Gutes Gefühl. Ohne Umwege.</h1>
+            <p class="hero-lead">
+              Friseur Creativ in Herbolzheim verbindet individuelle Beratung, hochwertige Arbeit und ein persönliches Erlebnis
+              in einer klaren, modernen und auf Mobilgeräte optimierten Website.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="tel:07643930693">Jetzt Termin anfragen</a>
+              <a class="btn btn-secondary" href="galerie.html">Galerie ansehen</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="card">
+            <h3>Öffnungszeiten</h3>
+            <p>Direkt übernommen und klarer strukturiert dargestellt.</p>
+            <div class="hours">
+              <div class="hours-row"><span>Dienstag – Mittwoch</span><strong>8:30 – 12:00 · 13:30 – 18:00</strong></div>
+              <div class="hours-row"><span>Donnerstag</span><strong>8:30 – 12:00 · 13:30 – 19:30</strong></div>
+              <div class="hours-row"><span>Freitag</span><strong>8:30 – 12:00 · 13:30 – 19:30</strong></div>
+              <div class="hours-row"><span>Samstag</span><strong>8:30 – 13:30</strong></div>
+            </div>
+          </div>
+
+          <div class="trust-grid">
+            <div class="trust"><strong>Individuell</strong>Die Persönlichkeit des Menschen steht im Mittelpunkt.</div>
+            <div class="trust"><strong>Qualitativ</strong>Gute Produkte und hohes Können gehören zum Anspruch.</div>
+            <div class="trust"><strong>Zuverlässig</strong>Flexibilität, Einsatz und Vertrauen sind Teil der Philosophie.</div>
+            <div class="trust"><strong>Persönlich</strong>Der Besuch soll zu einem echten Erlebnis werden.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-tight mobile-priority">
+        <div class="mobile-info">
+          <h3>Öffnungszeiten</h3>
+          <p>Sofort sichtbar und auf dem Handy leichter erfassbar.</p>
+          <div class="mobile-hours">
+            <div>Dienstag – Mittwoch · 8:30 – 12:00 · 13:30 – 18:00</div>
+            <div>Donnerstag – Freitag · 8:30 – 12:00 · 13:30 – 19:30</div>
+            <div>Samstag · 8:30 – 13:30</div>
+          </div>
+        </div>
+
+        <div class="mobile-info">
+          <h3>Direkter Kontakt</h3>
+          <p>Telefon 07643 930 693 · E-Mail info@friseur-creativ.com · Rheinhausenstraße 32, 79336 Herbolzheim.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="leistungen">
+      <div class="container">
+        <div class="section-head">
+          <h2>Leistungen sofort verständlich</h2>
+          <p>Damenhaarschnitte, Herrenhaarschnitte, Kinderhaarschnitte, Stylings, Farb- und Strähntechniken, Dauerwellen, Hochstecken, Haarreparaturen, Wimpern- und Augenbrauenfärben sowie Make-up. [page:30]</p>
+        </div>
+
+        <div class="services">
+          <article class="service"><div class="service-no">01</div><h3>Schneiden</h3><p>Damen-, Herren- und Kinderhaarschnitte mit typgerechter Beratung und präzisem Finish.</p></article>
+          <article class="service"><div class="service-no">02</div><h3>Farbe</h3><p>Farb- und Strähntechniken für frische Akzente, natürliche Tiefe oder neue Veränderungen.</p></article>
+          <article class="service"><div class="service-no">03</div><h3>Styling</h3><p>Stylings und Hochsteckfrisuren für Alltag, Event und besondere Anlässe.</p></article>
+          <article class="service"><div class="service-no">04</div><h3>Beauty</h3><p>Dauerwellen, Haarreparaturen, Augenbrauen- und Wimpernfarbe sowie Make-up.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a5a81410108467eea03c4c3e5f6810196bc49c23.jpg" alt="Farbbehandlung im Friseursalon">
+        </div>
+        <div class="about-copy">
+          <h2>Beratung, Farbe und Handwerk auf höchstem Eindruck</h2>
+          <p>Die bestehende Website betont Individualität, Qualität, Zuverlässigkeit und hohes Können. Genau das wird hier visuell durch eine starke Nahaufnahme aus dem Farbservice unterstützt. [page:30]</p>
+          <div class="about-points">
+            <div class="about-point"><strong>Farbtechniken</strong>Perfekt für den visuellen Fokus auf Strähnen, Farbe und Präzision.</div>
+            <div class="about-point"><strong>Persönlicher Service</strong>Die Wirkung ist deutlich hochwertiger als reine Textaufzählungen.</div>
+            <div class="about-point"><strong>Vertrauen</strong>Die Seite zeigt damit echtes Handwerk statt nur Behauptungen.</div>
+            <div class="about-point"><strong>Premium-Look</strong>Großes Bild links, klarer Inhalt rechts sorgt für starken Rhythmus.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophie">
+      <div class="container philo-grid">
+        <div class="philo-main">
+          <p class="quote">„Die Individualität des Menschen steht im Mittelpunkt.“</p>
+          <p>Die Website beschreibt außerdem, dass das Beste an Produkten und Arbeitsgeräten gerade gut genug ist, dass durch Flexibilität, positiven Einsatz, Zuverlässigkeit und hohes Können Vertrauen gewonnen werden soll und dass der Besuch zu einem persönlichen Erlebnis werden soll. [page:30]</p>
+        </div>
+
+        <div class="pillars">
+          <div class="pillar"><strong>Persönlich</strong>Jeder Termin soll angenehm, aufmerksam und individuell wirken.</div>
+          <div class="pillar"><strong>Hochwertig</strong>Gute Produkte und gutes Handwerk sind ausdrücklich Teil des Anspruchs. [page:30]</div>
+          <div class="pillar"><strong>Verlässlich</strong>Flexibilität, positiver Einsatz und Zuverlässigkeit schaffen Vertrauen. [page:30]</div>
+          <div class="pillar"><strong>Erlebnisorientiert</strong>Der Besuch soll mehr sein als nur ein kurzer Haarschnitt. [page:30]</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="container team-section">
+        <div>
+          <div class="section-head" style="grid-template-columns:1fr;margin-bottom:16px;">
+            <h2>Das Team klarer und hochwertiger dargestellt</h2>
+            <p>Die aktuelle Website nennt Claudia, Daniela, Hanna, Manuela, Saskia, Pilar und Nicole. [page:30]</p>
+          </div>
+
+          <div class="team">
+            <article class="person"><div class="avatar">C</div><div><h3>Claudia</h3><p>Persönliche Betreuung und ein gutes Gespür für passende Veränderungen.</p></div></article>
+            <article class="person"><div class="avatar">D</div><div><h3>Daniela</h3><p>Saubere Ergebnisse, klare Linien und ein gepflegter Gesamteindruck.</p></div></article>
+            <article class="person"><div class="avatar">H</div><div><h3>Hanna</h3><p>Moderne Ideen, präzises Arbeiten und ein Blick für individuelle Wünsche.</p></div></article>
+            <article class="person"><div class="avatar">M</div><div><h3>Manuela</h3><p>Erfahrung, Ruhe und eine angenehme Art in der Beratung.</p></div></article>
+            <article class="person"><div class="avatar">S</div><div><h3>Saskia</h3><p>Kreative Akzente und ein harmonisches Gefühl für Form und Finish.</p></div></article>
+            <article class="person"><div class="avatar">P</div><div><h3>Pilar</h3><p>Sorgfalt, persönlicher Umgang und natürlich wirkende Ergebnisse.</p></div></article>
+            <article class="person"><div class="avatar">N</div><div><h3>Nicole</h3><p>Verlässliche Betreuung und konzentriertes Handwerk im Alltag.</p></div></article>
+            <article class="person"><div class="avatar">FC</div><div><h3>Friseur Creativ</h3><p>Ein Team mit Fokus auf Qualität, Vertrauen und Wohlfühlatmosphäre.</p></div></article>
+          </div>
+        </div>
+
+        <div class="team-visual">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/062fd8fb18ae14bd802291d381ed248f2b9bc934.jpg" alt="Friseurin bei der Arbeit">
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="container contact-grid">
+        <div class="contact-card">
+          <div class="section-head" style="grid-template-columns:1fr;margin-bottom:0;">
+            <h2>Kontakt & Termin</h2>
+            <p>Friseur Creativ, Rheinhausenstraße 32, 79336 Herbolzheim, Telefon 07643 930 693, E-Mail info@friseur-creativ.com. [page:30]</p>
+          </div>
+
+          <div class="contact-list">
+            <div class="contact-item"><small>Salon</small><strong>Friseur Creativ</strong></div>
+            <div class="contact-item"><small>Adresse</small><strong>Rheinhausenstraße 32, 79336 Herbolzheim</strong></div>
+            <div class="contact-item"><small>Telefon</small><strong><a href="tel:07643930693">07643 930 693</a></strong></div>
+            <div class="contact-item"><small>E-Mail</small><strong><a href="mailto:info@friseur-creativ.com">info@friseur-creativ.com</a></strong></div>
+            <div class="contact-item"><small>Inhaber</small><strong>Tobias Beck</strong></div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-visual">
+            <h3 style="margin:0 0 10px;">Atmosphäre, die schon digital Vertrauen schafft</h3>
+            <p>Das Bild ist hier bewusst im Kontaktbereich platziert, damit der Abschluss nicht nur informativ, sondern auch hochwertig wirkt.</p>
+            <div class="hero-actions" style="margin-top:18px;">
+              <a class="btn btn-primary" href="tel:07643930693">Jetzt anrufen</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-box">
+        <div class="footer-grid">
+          <div>
+            <h3>Friseur Creativ</h3>
+            <p>Moderner Friseursalon in Herbolzheim mit Fokus auf Persönlichkeit, Vertrauen und hochwertige Ergebnisse.</p>
+          </div>
+          <div>
+            <h4>Rechtliches</h4>
+            <div class="footer-list">
+              <a href="impressum.html">Impressum</a>
+              <a href="datenschutz.html">Datenschutz</a>
+              <a href="galerie.html">Galerie</a>
+            </div>
+          </div>
+          <div>
+            <h4>Kontakt</h4>
+            <div class="footer-list">
+              <a href="tel:07643930693">07643 930 693</a>
+              <a href="mailto:info@friseur-creativ.com">info@friseur-creativ.com</a>
+              <span>Rheinhausenstraße 32, 79336 Herbolzheim</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-call">
+    <a href="tel:07643930693">Jetzt Termin anfragen</a>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const navLinks = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>

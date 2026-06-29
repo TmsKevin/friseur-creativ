@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galerie | Friseur Creativ Herbolzheim</title>
+  <style>
+    :root{
+      --surface:#fff; --text:#121815; --muted:#67746d; --line:rgba(18,24,21,.08); --brand:#264437; --brand-2:#6f8f7b;
+      --dark:#0e1411; --shadow:0 24px 70px rgba(14,20,17,.09); --container:1500px;
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--text);background:linear-gradient(180deg,#f7faf7 0%,#eef3ef 100%)}
+    a{text-decoration:none;color:inherit} img{max-width:100%;display:block}
+    .container{width:min(calc(100% - 20px), var(--container));margin:0 auto}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:12px}.brand-badge{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;font-weight:800}.brand-copy strong{display:block}.brand-copy span{display:block;color:var(--muted);font-size:.86rem}
+    .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.nav-cta{padding:13px 18px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700}
+    .hero{padding:14px 0 10px}.hero-card{min-height:430px;border-radius:30px;overflow:hidden;position:relative;box-shadow:var(--shadow);background:linear-gradient(180deg, rgba(14,20,17,.18) 0%, rgba(14,20,17,.62) 100%),url("https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fcf2005fd4d94ec3b3e8d4ee5c7b5d23e0b5201b.jpg") center/cover}
+    .hero-content{position:absolute;left:30px;right:30px;bottom:28px;color:#fff;max-width:620px}
+    h1{margin:0 0 10px;font-size:clamp(2.2rem,5vw,4.5rem);line-height:1.02;letter-spacing:-.04em}.hero-content p{margin:0;color:rgba(255,255,255,.9)}
+    .gallery{padding:18px 0 28px}
+    .gallery-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+    .stack{display:grid;gap:16px}
+    .img-card{background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+    .img-card img{width:100%;height:100%;object-fit:cover}
+    .large{min-height:560px}.medium{min-height:272px}.small{min-height:240px}
+    .caption{padding:16px 18px}.caption strong{display:block;margin-bottom:6px}.caption p{margin:0;color:var(--muted)}
+    .footer-box{margin:0 0 28px;background:var(--dark);color:#eef5ef;border-radius:26px;padding:24px}.footer-box a,.footer-box p{color:rgba(238,245,239,.82)}
+    @media (max-width:900px){.gallery-grid{grid-template-columns:1fr}.large,.medium,.small{min-height:320px}.nav{padding:14px 0;flex-direction:column;align-items:flex-start}.nav-links{width:100%}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <div class="brand-badge">FC</div>
+          <div class="brand-copy">
+            <strong>Friseur Creativ</strong>
+            <span>Herbolzheim</span>
+          </div>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html">Start</a>
+          <a href="galerie.html">Galerie</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a class="nav-cta" href="tel:07643930693">Termin anfragen</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-content">
+          <h1>Einblicke in Stil, Atmosphäre und Handwerk</h1>
+          <p>Die Galerie ergänzt die bestehende Salonpräsentation um eine viel stärkere visuelle Wirkung. [page:30]</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery">
+      <div class="gallery-grid">
+        <article class="img-card large">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fcf2005fd4d94ec3b3e8d4ee5c7b5d23e0b5201b.jpg" alt="Moderner Salon-Innenraum">
+        </article>
+
+        <div class="stack">
+          <article class="img-card medium">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/062fd8fb18ae14bd802291d381ed248f2b9bc934.jpg" alt="Friseurin bei der Arbeit">
+          </article>
+          <article class="img-card medium">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a5a81410108467eea03c4c3e5f6810196bc49c23.jpg" alt="Farbbehandlung im Salon">
+          </article>
+        </div>
+      </div>
+
+      <div class="gallery-grid" style="margin-top:16px;grid-template-columns:.9fr 1.1fr;">
+        <article class="img-card small">
+          <div class="caption">
+            <strong>Salon & Atmosphäre</strong>
+            <p>Die aktuelle Website betont das persönliche Erlebnis beim Besuch; genau dafür ist dieser Bildtyp ideal. [page:30]</p>
+          </div>
+        </article>
+        <article class="img-card small">
+          <div class="caption">
+            <strong>Farbe & Präzision</strong>
+            <p>Die Website nennt unterschiedliche Farb- und Strähntechniken sowie intensive Reparaturen für das Haar. [page:30]</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-box">
+        <p>Friseur Creativ · Rheinhausenstraße 32 · 79336 Herbolzheim · <a href="tel:07643930693">07643 930 693</a></p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
